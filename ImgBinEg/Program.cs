@@ -35,7 +35,7 @@ namespace ImgBinEg
             //Enter language for Tesseract engine
             //Console.WriteLine("Enter language(hin-Hindi,eng-English,ori-Oriya):");
             language = "eng";// Console.ReadLine();
-            language = "vie";
+            //language = "vie";
             //Create Bitmap object
             Bitmap img2 = Accord.Imaging.Image.FromFile(path);
 
