@@ -27,6 +27,8 @@ namespace ImgBinEg
             //Separating filename and directory
             path = "en.jpg";// Console.ReadLine();
             path = "1.jpg";
+            path = "12.jpg";
+            //path = "13.jpg";
             //path = "2.jpg";
 
 
