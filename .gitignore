@@ -4,3 +4,4 @@
 /ImgBinEg/obj
 /.vs
 /debug
+/demo-build/*.pdb
