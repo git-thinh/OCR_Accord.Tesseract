@@ -44,11 +44,15 @@ namespace demo
             rot.FillColor = Color.White;
             result = rot.Apply(result);
 
+            int h = (int)(result.Height * 0.3);
+            int w = (int)(result.Width * 0.6);
+            Crop filter = new Crop(new Rectangle(result.Width - w, 0, w, h));
+            result = filter.Apply(result);
+            
             stopWatch.Stop();
             f_print(stopWatch);
 
             result.Save(filename + "_filter.bmp");
-
             return result;
         }
 
@@ -78,13 +82,13 @@ namespace demo
                     //using (var page = engine.Process(image))
                     {
                         var text = page.GetText();
+                        stopWatch.Stop();
+                        f_print(stopWatch);
                         //Regex regex = new Regex("[^a-zA-Z0-9]");
                         Regex regex = new Regex("[^0-9\\s]");
                         text = regex.Replace(text, string.Empty);
                         string[] a = text.Split(new string[] { " ", "\r", "\n" }, StringSplitOptions.None)
                             .Where(x => x.Length > 7).ToArray();
-                        stopWatch.Stop();
-                        f_print(stopWatch);
                         return a;
                     }
                 }
@@ -100,16 +104,68 @@ namespace demo
             return new string[] { };
         }
 
+        static string f_get_text(string pathImage, Bitmap image, Boolean saveImageOcr = false)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            string filename = pathImage.Split('.')[0];
+            try
+            {
+                using (var engine = new TesseractEngine(@".\tessdata", "eng", EngineMode.Default))
+                {
+                    //engine.SetVariable("tessedit_char_whitelist", "0123456789:");
+
+                    using (var page = engine.Process(image, Rect.Empty))
+                    //using (var page = engine.Process(image))
+                    {
+                        var text = page.GetText();
+                        stopWatch.Stop();
+                        f_print(stopWatch);
+
+                        if (saveImageOcr)
+                        {
+                            var boxes = page.GetSegmentedRegions(PageIteratorLevel.Symbol).ToArray();
+
+                            Bitmap rez = new Bitmap(image);
+                            using (Graphics g = Graphics.FromImage(rez))
+                            {
+                                Pen p = new Pen(Brushes.Red, 1.0F);
+                                foreach (Rectangle r in boxes)
+                                {
+                                    //Console.WriteLine(r);
+                                    g.DrawRectangle(p, r);
+                                }
+                                g.DrawImage(rez, 0, 0);
+                            }
+                            rez.Save(filename + "_ok.bmp");
+                        }
+
+                        return text;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+            }
+            return string.Empty;
+        }
+
         static void Main(string[] args)
         {
-            string[] a;
+            string s;
             string f;
 
             f = "1.jpg";
 
             Bitmap image = f_imageFilter(f);
-            a = f_get_id(image);
-            Console.WriteLine("\n\nText: {0}", a[0]);
+            s = f_get_text(f, image, true);
+            Console.WriteLine("\n\n\n\n{0}\n\n\n\n", s);
 
             Console.WriteLine("\n\nPress ENTER/RETURN to exit");
             Console.ReadKey(true);
