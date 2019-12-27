@@ -3,6 +3,8 @@ using Accord.Imaging.Filters;
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Tesseract;
 
 namespace demo
@@ -61,7 +63,7 @@ namespace demo
             Console.WriteLine("Time = " + elapsedTime);
         }
 
-        static void f_get_id(Bitmap image)
+        static string[] f_get_id(Bitmap image)
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
@@ -76,10 +78,14 @@ namespace demo
                     //using (var page = engine.Process(image))
                     {
                         var text = page.GetText();
+                        //Regex regex = new Regex("[^a-zA-Z0-9]");
+                        Regex regex = new Regex("[^0-9\\s]");
+                        text = regex.Replace(text, string.Empty);
+                        string[] a = text.Split(new string[] { " ", "\r", "\n" }, StringSplitOptions.None)
+                            .Where(x => x.Length > 7).ToArray();
                         stopWatch.Stop();
                         f_print(stopWatch);
-
-                        Console.WriteLine("Text: {0}", text);
+                        return a;
                     }
                 }
             }
@@ -91,30 +97,19 @@ namespace demo
             finally
             {
             }
+            return new string[] { };
         }
 
         static void Main(string[] args)
         {
+            string[] a;
             string f;
+
             f = "1.jpg";
 
             Bitmap image = f_imageFilter(f);
-            f_get_id(image);
-
-            //Stopwatch stopWatch = new Stopwatch();
-            //stopWatch.Start();
-            //using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
-            //{
-            //    using (var img = Pix.LoadFromFile(""))
-            //    {
-            //        using (var page = engine.Process(img))
-            //        {
-            //            Console.WriteLine(page.GetText());
-            //        }
-            //    }
-            //}
-            //stopWatch.Stop();
-            //f_print(stopWatch);
+            a = f_get_id(image);
+            Console.WriteLine("\n\nText: {0}", a[0]);
 
             Console.WriteLine("\n\nPress ENTER/RETURN to exit");
             Console.ReadKey(true);
