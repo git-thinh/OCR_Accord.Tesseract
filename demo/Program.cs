@@ -20,11 +20,18 @@ namespace demo
         static void Main(string[] args)
         {
             string f;
-            f = "1.jpg";
             f = "11.jpg";
             f = "12.jpg";//???
-            //f = "13.jpg";
-            //f = "14.jpg";
+            f = "13.jpg";
+            f = "14.jpg";
+
+            f = "1.jpg";
+            f = "15.jpg";
+            //f = "16.jpg";
+            //f = "17.jpg";
+            //f = "18.jpg";
+            //f = "19.jpg";
+
 
             //Bitmap image = fun_filterImage_Basic(f);
             Bitmap image = fun_filterImage_v1(f);
