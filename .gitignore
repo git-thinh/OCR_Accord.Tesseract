@@ -30,3 +30,9 @@
 /FaceDetection/bin
 /FaceDetection/obj
 /packages
+/Emgu.CV.Test/bin
+/Emgu.CV.Test/obj
+/Emgu.CV-build/Emgu.CV.Test.pdb
+/Emgu.CV-build/Emgu.CV.UI.xml
+/Emgu.CV-build/Emgu.CV.World.xml
+/Emgu.CV-build/ZedGraph.xml
