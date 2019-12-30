@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceDetection", "FaceDetect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emgu.CV.Test", "Emgu.CV.Test\Emgu.CV.Test.csproj", "{B129BE4F-6516-4767-952A-CB2C13B08804}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicensePlateRecognition", "LicensePlateRecognition\LicensePlateRecognition.csproj", "{67728CCA-5F38-4536-8E66-BFD9A668F46D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,14 @@ Global
 		{B129BE4F-6516-4767-952A-CB2C13B08804}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B129BE4F-6516-4767-952A-CB2C13B08804}.Release|x86.ActiveCfg = Release|Any CPU
 		{B129BE4F-6516-4767-952A-CB2C13B08804}.Release|x86.Build.0 = Release|Any CPU
+		{67728CCA-5F38-4536-8E66-BFD9A668F46D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67728CCA-5F38-4536-8E66-BFD9A668F46D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67728CCA-5F38-4536-8E66-BFD9A668F46D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{67728CCA-5F38-4536-8E66-BFD9A668F46D}.Debug|x86.Build.0 = Debug|Any CPU
+		{67728CCA-5F38-4536-8E66-BFD9A668F46D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67728CCA-5F38-4536-8E66-BFD9A668F46D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67728CCA-5F38-4536-8E66-BFD9A668F46D}.Release|x86.ActiveCfg = Release|Any CPU
+		{67728CCA-5F38-4536-8E66-BFD9A668F46D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

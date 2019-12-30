@@ -54,8 +54,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DrawMatches.cs" />
-    <Compile Include="FeatureMatching.cs" />
+    <Compile Include="FeatureMatching\DrawMatches.cs" />
+    <Compile Include="FeatureMatching\FeatureMatching.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
