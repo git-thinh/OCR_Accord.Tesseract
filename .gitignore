@@ -29,7 +29,6 @@
 /Face detection (Viola-Jones)/obj
 /FaceDetection/bin
 /FaceDetection/obj
-/packages
 /Emgu.CV.Test/bin
 /Emgu.CV.Test/obj
 /Emgu.CV-build/Emgu.CV.Test.pdb
@@ -38,3 +37,5 @@
 /Emgu.CV-build/ZedGraph.xml
 /LicensePlateRecognition/bin
 /LicensePlateRecognition/obj
+/Emgu.CV.HelloWorld/bin
+/Emgu.CV.HelloWorld/obj

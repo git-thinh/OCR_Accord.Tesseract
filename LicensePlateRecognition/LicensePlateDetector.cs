@@ -266,6 +266,7 @@ namespace LicensePlateRecognition
                                 _ocr.Recognize();
 
                                 strBuilder.Append(_ocr.GetUTF8Text());
+
                                 /*
                                 words = _ocr.GetCharacters();
 
