@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCR", "OCR\OCR.csproj", "{3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tesseract", "Tesseract", "{FD240FC3-08A9-41D8-BBD9-1793929745A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertBitmapToPix", "ConvertBitmapToPix\ConvertBitmapToPix.csproj", "{AAC26591-3C61-47B5-BDFE-B7778B99924A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "ConvertBitmapToPix\Test.csproj", "{AAC26591-3C61-47B5-BDFE-B7778B99924A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

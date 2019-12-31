@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,6 +54,11 @@
     <Compile Include="Libs\ScreenshotTaker\Taker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
+    <Compile Include="TestColor.cs" />
+    <Compile Include="TestGetText.cs" />
+    <Compile Include="TestPix.cs" />
+    <Compile Include="TestProcessImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
