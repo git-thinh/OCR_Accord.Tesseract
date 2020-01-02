@@ -1,0 +1,11 @@
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\bin\x86\Debug\Accord.Statistics.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\bin\x86\Debug\Accord.Statistics.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\bin\x86\Debug\Accord.Math.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\bin\x86\Debug\AForge.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\bin\x86\Debug\AForge.Math.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\bin\x86\Debug\Accord.Math.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\obj\x86\Debug\Accord.Statistics.csprojAssemblyReference.cache
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\obj\x86\Debug\Accord.Statistics.csproj.CopyComplete
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\obj\x86\Debug\Accord.Statistics.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\obj\x86\Debug\Accord.Statistics.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Statistics\bin\x86\Debug\ZedGraph.dll

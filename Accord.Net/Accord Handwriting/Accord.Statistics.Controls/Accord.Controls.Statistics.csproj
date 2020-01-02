@@ -80,11 +80,11 @@
   <ItemGroup>
     <Reference Include="AForge, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Externals\AForge\AForge.dll</HintPath>
+      <HintPath>..\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Math, Version=2.0.0.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Externals\AForge\AForge.Math.dll</HintPath>
+      <HintPath>..\AForge.Math.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -100,9 +100,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Externals\ZedGraph\ZedGraph.dll</HintPath>
+    <Reference Include="ZedGraph">
+      <HintPath>..\ZedGraph.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
