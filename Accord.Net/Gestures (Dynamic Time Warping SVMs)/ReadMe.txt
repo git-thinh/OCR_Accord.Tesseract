@@ -1,0 +1,1 @@
+Demonstrates how to use Support Vector Machines (SVMs) with the Dynamic Time Warping (DTW) kernel to recognize sequences of discrete observations.

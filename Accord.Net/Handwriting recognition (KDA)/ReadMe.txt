@@ -1,0 +1,1 @@
+This sample application shows how to perform handwritten digit recognition using Kernel Discriminant Analysis and Linear Discriminant Analysis.

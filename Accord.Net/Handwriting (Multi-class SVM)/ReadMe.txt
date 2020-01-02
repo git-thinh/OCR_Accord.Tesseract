@@ -1,0 +1,1 @@
+This sample application shows how to teach Multi-class Support Vector Machines using Sequential Minimal Optimization to recognize handwritten digits from the UCI's Optdigits dataset.

@@ -51,3 +51,13 @@
 /Test_Tesseract_3.0.1_net2/bin
 /Test_Tesseract_3.0.1_net2/obj
 /Test_Tesseract_3.0.1_net2_build
+/Tesseract_AForge.NET_Captcha/RecogCaptcha/RecogCaptcha/obj
+/Tesseract_AForge.NET_Captcha/RecogCaptcha/RecogCaptcha/bin
+/Tesseract_AForge.NET_Captcha/RecogCaptcha/packages
+/_build
+/Accord.Net/Deep Belief Networks and Boltzmann Machines/.vs
+/Accord.Net/Deep Belief Networks and Boltzmann Machines/Neuro/Deep Learning/obj
+/Accord.Net/Deep Belief Networks and Boltzmann Machines/Neuro/Deep Learning/bin
+/Accord.Net/Deep Belief Networks and Boltzmann Machines/packages
+/Accord.Net/Gestures (Dynamic Time Warping SVMs)/Gestures (SVMs)/obj
+/Accord.Net/Gestures (Dynamic Time Warping SVMs)/Gestures (SVMs)/bin

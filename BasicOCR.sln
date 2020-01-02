@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_3.3.0", "ConvertBitmap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Tesseract_3.0.1_net2x86", "Test_Tesseract_3.0.1_net2\Test_Tesseract_3.0.1_net2x86.csproj", "{3A9B2425-13CD-4D5A-BF89-6DB94A8BA42C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseract_AForge.NET_Captcha", "Tesseract_AForge.NET_Captcha\RecogCaptcha\Tesseract_AForge.NET_Captcha.csproj", "{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,14 @@ Global
 		{3A9B2425-13CD-4D5A-BF89-6DB94A8BA42C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A9B2425-13CD-4D5A-BF89-6DB94A8BA42C}.Release|x86.ActiveCfg = Release|Any CPU
 		{3A9B2425-13CD-4D5A-BF89-6DB94A8BA42C}.Release|x86.Build.0 = Release|Any CPU
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}.Debug|x86.Build.0 = Debug|Any CPU
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}.Release|x86.ActiveCfg = Release|Any CPU
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,6 +148,7 @@ Global
 		{3C4F319C-52DC-4FD1-88D5-5A6548B17CAD} = {47FFEF68-C950-47DB-BAE8-B40C7770FB65}
 		{AAC26591-3C61-47B5-BDFE-B7778B99924A} = {FD240FC3-08A9-41D8-BBD9-1793929745A2}
 		{3A9B2425-13CD-4D5A-BF89-6DB94A8BA42C} = {FD240FC3-08A9-41D8-BBD9-1793929745A2}
+		{81CF9EB1-A708-4564-9F35-342F3B6EEEEA} = {FD240FC3-08A9-41D8-BBD9-1793929745A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17EE18A8-05C6-440D-BAE9-A89D65AA648E}

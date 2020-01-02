@@ -1,0 +1,1 @@
+This sample application shows how to learn Deep Belief Networks using Restricted Boltzmann Machines and the Contrastive-Divergence algorithm. However, please note that this approach has been deprecated in favor of learning Deep Neural Networks with ReLU and BatchNorm directly using SGD.
