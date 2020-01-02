@@ -12,7 +12,7 @@ namespace ConvertBitmapToPix
         const string _root = Program._root;
         const string _result = Program._result;
 
-        public static void DescewTest(string sourcePixPath = "scewed-phototest.png")
+        public static void test_001_DescewTest(string sourcePixPath = "scewed-phototest.png")
         {
             using (var sourcePix = Pix.LoadFromFile(_root + sourcePixPath))
             {
@@ -27,7 +27,7 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void OtsuBinarizationTest(string sourcePixFilename = "neo-8bit.png")
+        public static void test_002_OtsuBinarizationTest(string sourcePixFilename = "neo-8bit.png")
         {
             //var sourcePixFilename = TestFilePath(@"Binarization\neo-8bit.png");
             using (var sourcePix = Pix.LoadFromFile(sourcePixFilename))
@@ -41,7 +41,7 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void SauvolaBinarizationTest(string sourcePixFilename = "neo-8bit-grayscale.png")
+        public static void test_003_SauvolaBinarizationTest(string sourcePixFilename = "neo-8bit-grayscale.png")
         {
             //string sourcePixFilename = TestFilePath(@"Binarization\neo-8bit-grayscale.png");
             using (var sourcePix = Pix.LoadFromFile(_root + sourcePixFilename))
@@ -58,7 +58,7 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void SauvolaTiledBinarizationTest(string sourcePixFilename = "neo-8bit-grayscale.png")
+        public static void test_004_SauvolaTiledBinarizationTest(string sourcePixFilename = "neo-8bit-grayscale.png")
         {
             //string sourcePixFilename = TestFilePath(@"Binarization\neo-8bit-grayscale.png");
             using (var sourcePix = Pix.LoadFromFile(_root + sourcePixFilename))
@@ -75,7 +75,7 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void ConvertRGBToGrayTest(string sourcePixFilename = "photo_rgb_32bpp.tif")
+        public static void test_005_ConvertRGBToGrayTest(string sourcePixFilename = "photo_rgb_32bpp.tif")
         {
             //var sourcePixFilename = TestFilePath(@"Conversion\photo_rgb_32bpp.tif");
             using (var sourcePix = Pix.LoadFromFile(_root + sourcePixFilename))
@@ -91,7 +91,7 @@ namespace ConvertBitmapToPix
         //[TestCase(90)]
         //[TestCase(180)]
         //[TestCase(270)]
-        public static void Rotate_ShouldBeAbleToRotateImageByXDegrees(float angle, string sourcePixFilename = "photo_rgb_32bpp.tif")
+        public static void test_006_Rotate_ShouldBeAbleToRotateImageByXDegrees(float angle, string sourcePixFilename = "photo_rgb_32bpp.tif")
         {
             const string FileNameFormat = "rotation_{0}degrees.jpg";
             float angleAsRadians = MathHelper.ToRadians(angle);
@@ -108,7 +108,7 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void RemoveLinesTest(string sourcePixFilename = "table.png")
+        public static void test_007_RemoveLinesTest(string sourcePixFilename = "table.png")
         {
             //var sourcePixFilename = TestFilePath(@"processing\table.png");
             using (var sourcePix = Pix.LoadFromFile(_root + sourcePixFilename))
@@ -135,7 +135,7 @@ namespace ConvertBitmapToPix
         }
 
         //[Values(0.25f, 0.5f, 0.75f, 1, 1.25f, 1.5f, 1.75f, 2, 4, 8)]  
-        public static void Scale_RGB_ShouldBeScaledBySpecifiedFactor(float scale, string sourcePixFilename = "photo_rgb_32bpp.tif")
+        public static void test_008_Scale_RGB_ShouldBeScaledBySpecifiedFactor(float scale, string sourcePixFilename = "photo_rgb_32bpp.tif")
         {
             const string FileNameFormat = "scale_{0}.jpg";
 

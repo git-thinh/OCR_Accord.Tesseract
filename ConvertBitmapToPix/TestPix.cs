@@ -8,14 +8,14 @@ namespace ConvertBitmapToPix
 {
     public unsafe class TestPix : TestBase
     {
-        const int Width = 59, Height = 53; 
+        const int Width = 59, Height = 53;
         //[TestCase(1)]
         //[TestCase(2)]
         //[TestCase(4)]
         //[TestCase(8)]
         //[TestCase(16)]
         //[TestCase(32)]
-        public static void CanReadAndWriteData(int depth)
+        public static void test_001_CanReadAndWriteData(int depth)
         {
             using (var pix = Pix.Create(Width, Height, depth))
             {
@@ -76,12 +76,12 @@ namespace ConvertBitmapToPix
         /// LeptonicaPerformanceTests.cs
         /// Leptonica Performance Tests
         /// </summary>
-        public static void ConvertToBitmap()
+        public static void test_002_ConvertToBitmap(string sourceFilePath = "photo_palette_8bpp.tif")
         {
             const double BaseRunTime = 793.382;
             const int Runs = 1000;
 
-            var sourceFilePath = Path.Combine("./Data/Conversion", "photo_palette_8bpp.tif");
+            //var sourceFilePath = Path.Combine("./Data/Conversion", "photo_palette_8bpp.tif");
             using (var bmp = new Bitmap(sourceFilePath))
             {
                 // Don't include the first conversion since it will also handle loading the library etc (upfront costs).
@@ -115,9 +115,9 @@ namespace ConvertBitmapToPix
 
         // Test for [Issue #166](https://github.com/charlesw/tesseract/issues/166)
         //[Test]
-        public static unsafe void Convert_ScaledBitmapToPix()
+        public static unsafe void test_003_Convert_ScaledBitmapToPix(string sourceFilePath = "photo_rgb_32bpp.tif")
         {
-            var sourceFilePath = TestFilePath("Conversion/photo_rgb_32bpp.tif");
+            //var sourceFilePath = TestFilePath("Conversion/photo_rgb_32bpp.tif");
             var bitmapConverter = new BitmapToPixConverter();
             using (var source = new Bitmap(sourceFilePath))
             {
@@ -126,7 +126,8 @@ namespace ConvertBitmapToPix
                     //Assert.That(BitmapHelper.GetBPP(scaledSource), Is.EqualTo(32));
                     using (var dest = bitmapConverter.Convert(scaledSource))
                     {
-                        dest.Save(TestResultRunFile("Conversion/ScaledBitmapToPix_rgb_32bpp.tif"), ImageFormat.Tiff);
+                        //dest.Save(TestResultRunFile("Conversion/ScaledBitmapToPix_rgb_32bpp.tif"), ImageFormat.Tiff);
+                        dest.Save("_/ScaledBitmapToPix_rgb_32bpp.tif", ImageFormat.Tiff);
 
                         AssertAreEquivalent(scaledSource, dest, true);
                     }
@@ -139,14 +140,15 @@ namespace ConvertBitmapToPix
         //[TestCase(4, Ignore = "4bpp images not supported.")]
         //[TestCase(8)]
         //[TestCase(32)]
-        public static unsafe void Convert_BitmapToPix(int depth)
+        public static unsafe void test_004_Convert_BitmapToPix(int depth)
         {
             string pixType;
             if (depth < 16) pixType = "palette";
             else if (depth == 16) pixType = "grayscale";
             else pixType = "rgb";
 
-            var sourceFile = String.Format("Conversion/photo_{0}_{1}bpp.tif", pixType, depth);
+            //var sourceFile = String.Format("Conversion/photo_{0}_{1}bpp.tif", pixType, depth);
+            var sourceFile = String.Format("photo_{0}_{1}bpp.tif", pixType, depth);
             var sourceFilePath = TestFilePath(sourceFile);
             var bitmapConverter = new BitmapToPixConverter();
             using (var source = new Bitmap(sourceFilePath))
@@ -154,8 +156,9 @@ namespace ConvertBitmapToPix
                 //Assert.That(BitmapHelper.GetBPP(source), Is.EqualTo(depth));
                 using (var dest = bitmapConverter.Convert(source))
                 {
-                    var destFilename = String.Format("Conversion/BitmapToPix_{0}_{1}bpp.tif", pixType, depth);
-                    dest.Save(TestResultRunFile(destFilename), ImageFormat.Tiff);
+                    var destFilename = String.Format("_/BitmapToPix_{0}_{1}bpp.tif", pixType, depth);
+                    //dest.Save(TestResultRunFile(destFilename), ImageFormat.Tiff);
+                    dest.Save(destFilename, ImageFormat.Tiff);
 
                     AssertAreEquivalent(source, dest, true);
                 }
@@ -166,9 +169,9 @@ namespace ConvertBitmapToPix
         /// Test case for https://github.com/charlesw/tesseract/issues/180
         /// </summary>
         //[Test]
-        public static unsafe void Convert_BitmapToPix_Format8bppIndexed()
+        public static unsafe void test_005_Convert_BitmapToPix_Format8bppIndexed(string sourceFile = "photo_palette_8bpp.png")
         {
-            var sourceFile = TestFilePath("Conversion/photo_palette_8bpp.png");
+            //var sourceFile = TestFilePath("Conversion/photo_palette_8bpp.png");
             var bitmapConverter = new BitmapToPixConverter();
             using (var source = new Bitmap(sourceFile))
             {
@@ -176,7 +179,8 @@ namespace ConvertBitmapToPix
                 //Assert.That(source.PixelFormat, Is.EqualTo(PixelFormat.Format8bppIndexed));
                 using (var dest = bitmapConverter.Convert(source))
                 {
-                    var destFilename = TestResultRunFile("Conversion/BitmapToPix_palette_8bpp.png");
+                    //var destFilename = TestResultRunFile("Conversion/BitmapToPix_palette_8bpp.png"); 
+                    var destFilename = "_/BitmapToPix_palette_8bpp.png";
                     dest.Save(destFilename, ImageFormat.Png);
 
                     AssertAreEquivalent(source, dest, true);
@@ -193,7 +197,7 @@ namespace ConvertBitmapToPix
         //[TestCase(8, true, false, Ignore = "Haven't yet created a 8bpp grayscale test image.")]
         //[TestCase(32, false, true)]
         //[TestCase(32, false, false)]
-        public static unsafe void Convert_PixToBitmap(int depth, bool isGrayscale, bool includeAlpha)
+        public static unsafe void test_006_Convert_PixToBitmap(int depth, bool isGrayscale, bool includeAlpha)
         {
             bool hasPalette = depth < 16 && !isGrayscale;
             string pixType;
@@ -201,7 +205,8 @@ namespace ConvertBitmapToPix
             else if (hasPalette) pixType = "palette";
             else pixType = "rgb";
 
-            var sourceFile = TestFilePath(String.Format("Conversion/photo_{0}_{1}bpp.tif", pixType, depth));
+            //var sourceFile = TestFilePath(String.Format("Conversion/photo_{0}_{1}bpp.tif", pixType, depth));
+            var sourceFile = String.Format("photo_{0}_{1}bpp.tif", pixType, depth);
             var converter = new PixToBitmapConverter();
             using (var source = Pix.LoadFromFile(sourceFile))
             {
@@ -216,7 +221,8 @@ namespace ConvertBitmapToPix
                 }
                 using (var dest = converter.Convert(source, includeAlpha))
                 {
-                    var destFilename = TestResultRunFile(String.Format("Conversion/PixToBitmap_{0}_{1}bpp.tif", pixType, depth));
+                    //var destFilename = TestResultRunFile(String.Format("Conversion/PixToBitmap_{0}_{1}bpp.tif", pixType, depth));
+                    var destFilename = String.Format("_/PixToBitmap_{0}_{1}bpp.tif", pixType, depth);
                     dest.Save(destFilename, System.Drawing.Imaging.ImageFormat.Tiff);
 
                     AssertAreEquivalent(dest, source, includeAlpha);
@@ -224,7 +230,7 @@ namespace ConvertBitmapToPix
             }
         }
 
-        private static void AssertAreEquivalent(Bitmap bmp, Pix pix, bool checkAlpha)
+        static void AssertAreEquivalent(Bitmap bmp, Pix pix, bool checkAlpha)
         {
             ////// verify img metadata
             ////Assert.That(pix.Width, Is.EqualTo(bmp.Width));
@@ -253,7 +259,7 @@ namespace ConvertBitmapToPix
             }
         }
 
-        private static unsafe PixColor GetPixel(Pix pix, int x, int y)
+        static unsafe PixColor GetPixel(Pix pix, int x, int y)
         {
             var pixDepth = pix.Depth;
             var pixData = pix.GetData();
@@ -303,7 +309,7 @@ namespace ConvertBitmapToPix
         //=========================================================================================
         //=========================================================================================
 
-        public static void CanCreatePixArray()
+        public static void test_009_CanCreatePixArray()
         {
             using (var pixA = PixArray.Create(0))
             {
@@ -311,9 +317,9 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void CanAddPixToPixArray()
+        public static void test_010_CanAddPixToPixArray(string sourcePixPath = "phototest.tif")
         {
-            var sourcePixPath = TestFilePath(@"Ocr\phototest.tif");
+            //var sourcePixPath = TestFilePath(@"Ocr\phototest.tif");
             using (var pixA = PixArray.Create(0))
             {
                 using (var sourcePix = Pix.LoadFromFile(sourcePixPath))
@@ -328,9 +334,9 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void CanRemovePixFromArray()
+        public static void test_011_CanRemovePixFromArray(string sourcePixPath = "phototest.tif")
         {
-            var sourcePixPath = TestFilePath(@"Ocr\phototest.tif");
+            //var sourcePixPath = TestFilePath(@"Ocr\phototest.tif");
             using (var pixA = PixArray.Create(0))
             {
                 using (var sourcePix = Pix.LoadFromFile(sourcePixPath))
@@ -343,9 +349,9 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void CanClearPixArray()
+        public static void test_012_CanClearPixArray(string sourcePixPath = "phototest.tif")
         {
-            var sourcePixPath = TestFilePath(@"Ocr\phototest.tif");
+            //var sourcePixPath = TestFilePath(@"Ocr\phototest.tif");
             using (var pixA = PixArray.Create(0))
             {
                 using (var sourcePix = Pix.LoadFromFile(sourcePixPath))

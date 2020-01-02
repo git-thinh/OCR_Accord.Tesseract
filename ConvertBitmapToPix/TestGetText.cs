@@ -14,7 +14,7 @@ namespace ConvertBitmapToPix
     {
         const string _root = Program._root;
 
-        public static Pix GetPix_1(string file = "1.jpg")
+        static Pix GetPix_1(string file = "1.jpg")
         {
             if (File.Exists(file))
             {
@@ -26,7 +26,7 @@ namespace ConvertBitmapToPix
             return null;
         }
 
-        public static void CanProcess24bitImage_1(string file = "phototest.tif", string lang = "eng")
+        public static void test_001_CanProcess24bitImage_1(string file = "phototest.tif", string lang = "eng")
         {
             using (var engine = new TesseractEngine(@"./tessdata", lang, EngineMode.Default))
             {
@@ -57,7 +57,7 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void CanProcess24bitImage_2(string file = "1.jpg", string lang = "eng")
+        public static void test_001_CanProcess24bitImage_2(string file = "1.jpg", string lang = "eng")
         {
             using (var engine = new TesseractEngine(@"./tessdata", lang, EngineMode.Default))
             {
