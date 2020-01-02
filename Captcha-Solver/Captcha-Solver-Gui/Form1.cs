@@ -26,7 +26,7 @@ namespace Captcha_Solver_Gui
         {
             InitializeComponent();
             //pictureBox1.Image = new Bitmap($"{Environment.CurrentDirectory}\\img\\informacao.bmp");
-            choseOcrExecute.Items.AddRange(_scripts.Keys.Select(x => (object)x).ToArray());
+            choseOcrExecute.Items.AddRange(___ImageFilters.getScriptNames());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1305,9 +1305,6 @@ namespace Captcha_Solver_Gui
 
         string m_ScriptSelected = string.Empty;
 
-        Dictionary<string, string[]> _scripts = new Dictionary<string, string[]>() { 
-        
-        };
 
         void f_Log() { }
 

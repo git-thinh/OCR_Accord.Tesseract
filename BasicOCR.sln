@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captcha-Solver-Gui", "Captc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captcha-Solver-Lib", "Captcha-Solver\Captcha-Solver-Lib\Captcha-Solver-Lib.csproj", "{8C4560DB-57CE-4C1C-83B5-19284DCBCEF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageOcrExplorer", "ImageOcrExplorer\ImageOcrExplorer.csproj", "{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -275,6 +277,18 @@ Global
 		{8C4560DB-57CE-4C1C-83B5-19284DCBCEF8}.Release|x64.Build.0 = Release|Any CPU
 		{8C4560DB-57CE-4C1C-83B5-19284DCBCEF8}.Release|x86.ActiveCfg = Release|Any CPU
 		{8C4560DB-57CE-4C1C-83B5-19284DCBCEF8}.Release|x86.Build.0 = Release|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Debug|x64.Build.0 = Debug|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Debug|x86.Build.0 = Debug|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Release|x64.ActiveCfg = Release|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Release|x64.Build.0 = Release|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D8CE40A-5FD3-4378-9FD0-3C5567DDC6CE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
