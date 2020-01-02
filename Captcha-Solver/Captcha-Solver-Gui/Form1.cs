@@ -10,6 +10,8 @@ namespace Captcha_Solver_Gui
 {
     public partial class Form1 : Form
     {
+        string str_file = "";
+
         private List<string> mudancas = new List<string>();
         private Bitmap original = null;
         private Bitmap anterior = null;
@@ -20,7 +22,7 @@ namespace Captcha_Solver_Gui
         public Form1()
         {
             InitializeComponent();
-            pictureBox1.Image = new Bitmap($"{Environment.CurrentDirectory}\\img\\informacao.bmp");
+            //pictureBox1.Image = new Bitmap($"{Environment.CurrentDirectory}\\img\\informacao.bmp");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,11 +41,24 @@ namespace Captcha_Solver_Gui
         {
             try
             {
-                Bitmap image = new Bitmap(openFileDialog1.FileName);
+                str_file = openFileDialog1.FileName;
+                open_file(str_file);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+            }
+        }
+
+        private void open_file(string file)
+        {
+            try
+            { 
+                Bitmap image = new Bitmap(file);
                 if (image != null)
                 {
                     ZerarMudanca();
-                    System.IO.FileInfo fi = new System.IO.FileInfo(openFileDialog1.FileName);
+                    System.IO.FileInfo fi = new System.IO.FileInfo(file);
                     fileName = fi.FullName;
                     original = new Bitmap(openFileDialog1.FileName);
                     anterior = MethodsImagenFilter.CopyBitmap(original);
@@ -1251,6 +1266,13 @@ namespace Captcha_Solver_Gui
             {
                 MessageBox.Show($"Erro: {ex.Message}");
             }
+        }
+
+        private void btn_reset_Click(object sender, EventArgs e)
+        {
+            open_file(str_file);
+            richTextBox1.Text = string.Empty;
+            resultado.Text = string.Empty;
         }
     }
 }
