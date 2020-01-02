@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -47,6 +56,79 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libs\IPoVnSystem\KernelHelper.cs" />
+    <Compile Include="Libs\IPoVnSystem\Parallel.cs" />
+    <Compile Include="Libs\IPoVnSystem\Utilities.cs" />
+    <Compile Include="Libs\System.Linq\DeepCopy.Assign.cs" />
+    <Compile Include="Libs\System.Linq\IsNumber.cs" />
+    <Compile Include="Libs\System.Linq\LinqExt.cs" />
+    <Compile Include="Libs\System.Linq\Lucene.Net.cs" />
+    <Compile Include="Libs\System.Linq\System.Collections.Generic\HashSet.cs" />
+    <Compile Include="Libs\System.Linq\System.Collections.Generic\ISet.cs" />
+    <Compile Include="Libs\System.Linq\System.Data.Linq\MonoTODOAttribute.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Dynamic\LinqDynamicMultiSortingUtility.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Dynamic\System.Linq.Dynamic.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\BinaryExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ConditionalExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ConstantExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ElementInit.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\EmitContext.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\Expression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ExpressionPrinter.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ExpressionTransformer.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ExpressionType.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ExpressionVisitor.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\Expression_T.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\Extensions.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\InvocationExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\LambdaExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ListInitExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\MemberAssignment.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\MemberBinding.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\MemberBindingType.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\MemberExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\MemberInitExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\MemberListBinding.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\MemberMemberBinding.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\MethodCallExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\NewArrayExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\NewExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\ParameterExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\TypeBinaryExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Expressions\UnaryExpression.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq.Ext.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\Check.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\Enumerable.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\Grouping.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\IGrouping.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\ILookup_T.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\IOrderedEnumerable_T.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\IOrderedQueryable.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\IOrderedQueryable_T.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\IQueryable.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\IQueryable_T.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\IQueryProvider.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\Lookup.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\OrderedEnumerable.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\OrderedSequence.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\Queryable.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\QueryableEnumerable.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\QueryableTransformer.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\QuickSort.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\SortContext.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\SortDirection.cs" />
+    <Compile Include="Libs\System.Linq\System.Linq\SortSequenceContext.cs" />
+    <Compile Include="Libs\System.Linq\System.Runtime.CompilerServices\DynamicAttribute.cs" />
+    <Compile Include="Libs\System.Linq\System.Runtime.CompilerServices\ExecutionScope.cs" />
+    <Compile Include="Libs\System.Linq\System.Runtime.CompilerServices\ExtensionAttribute.cs" />
+    <Compile Include="Libs\System.Linq\System.Runtime.CompilerServices\IStrongBox.cs" />
+    <Compile Include="Libs\System.Linq\System.Runtime.CompilerServices\StrongBox_T.cs" />
+    <Compile Include="Libs\System.Linq\System\Action.cs" />
+    <Compile Include="Libs\System.Linq\System\Func.cs" />
+    <Compile Include="Libs\System.Linq\Tuple\IStructuralComparable.cs" />
+    <Compile Include="Libs\System.Linq\Tuple\IStructuralEquatable.cs" />
+    <Compile Include="Libs\System.Linq\Tuple\Tuple.cs" />
+    <Compile Include="___ImageFilters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -58,6 +140,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -67,6 +150,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
