@@ -1,8 +1,0 @@
-C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Math\obj\x86\Debug\Accord.Math.csprojAssemblyReference.cache
-C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Math\bin\x86\Debug\Accord.Math.dll
-C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Math\bin\x86\Debug\Accord.Math.pdb
-C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Math\bin\x86\Debug\AForge.dll
-C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Math\bin\x86\Debug\AForge.Math.dll
-C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Math\obj\x86\Debug\Accord.Math.csproj.CopyComplete
-C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Math\obj\x86\Debug\Accord.Math.dll
-C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\Accord Handwriting\Accord.Math\obj\x86\Debug\Accord.Math.pdb
