@@ -56,12 +56,6 @@
     <Reference Include="AForge.Neuro, Version=2.2.5.0, Culture=neutral, PublicKeyToken=2094f4ea39731d4f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AForge.Neuro.2.2.5\lib\AForge.Neuro.dll</HintPath>
     </Reference>
-    <Reference Include="asprise-ocr-dll-bundle-32, Version=15.3.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\asprise-ocr-dll-bundle-32.15.3.0.4\lib\net40\asprise-ocr-dll-bundle-32.dll</HintPath>
-    </Reference>
-    <Reference Include="asprise-ocr-dll-bundle-64, Version=15.3.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\asprise-ocr-dll-bundle-64.15.3.0.4\lib\net40\asprise-ocr-dll-bundle-64.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />

@@ -4,12 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Captcha_Solver_Gui
 {
     public partial class Form1 : Form
     {
+        #region
+
         string str_file = "";
 
         private List<string> mudancas = new List<string>();
@@ -23,6 +26,7 @@ namespace Captcha_Solver_Gui
         {
             InitializeComponent();
             //pictureBox1.Image = new Bitmap($"{Environment.CurrentDirectory}\\img\\informacao.bmp");
+            choseOcrExecute.Items.AddRange(_scripts.Keys.Select(x => (object)x).ToArray());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,6 +46,7 @@ namespace Captcha_Solver_Gui
             try
             {
                 str_file = openFileDialog1.FileName;
+                this.Text = str_file;
                 open_file(str_file);
             }
             catch (Exception ex)
@@ -53,7 +58,7 @@ namespace Captcha_Solver_Gui
         private void open_file(string file)
         {
             try
-            { 
+            {
                 Bitmap image = new Bitmap(file);
                 if (image != null)
                 {
@@ -65,9 +70,9 @@ namespace Captcha_Solver_Gui
                     actual = MethodsImagenFilter.CopyBitmap(original);
                     resultado.Text = string.Empty;
                     gbFiltros.Enabled = true;
-                    gbTratamentos.Enabled = true;
                 }
                 pictureBox1.Image = image;
+                pictureBoxImage.Image = image;
             }
             catch (Exception ex)
             {
@@ -127,7 +132,7 @@ namespace Captcha_Solver_Gui
             }
         }
 
-        
+
 
         #region Filtros
 
@@ -135,10 +140,10 @@ namespace Captcha_Solver_Gui
         {
             try
             {
-                InsertarCambio("Blur");               
-                anterior = MethodsImagenFilter.CopyBitmap(actual);                
+                InsertarCambio("Blur");
+                anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Blur(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -151,10 +156,10 @@ namespace Captcha_Solver_Gui
             try
             {
                 InsertarCambio("BrightnessCorrection");
-                
+
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.BrightnessCorrection(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -166,10 +171,10 @@ namespace Captcha_Solver_Gui
         {
             try
             {
-                InsertarCambio("ContrastCorrection");                
+                InsertarCambio("ContrastCorrection");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.ContrastCorrection(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -181,10 +186,10 @@ namespace Captcha_Solver_Gui
         {
             try
             {
-                InsertarCambio("SaturationCorrection");                
+                InsertarCambio("SaturationCorrection");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
-                actual = MethodsImagenFilter.SaturationCorrection(actual);                
-                pictureBox1.Image = actual;
+                actual = MethodsImagenFilter.SaturationCorrection(actual);
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -199,7 +204,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("Closing");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Closing(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -211,10 +216,10 @@ namespace Captcha_Solver_Gui
         {
             try
             {
-                InsertarCambio("Dilatation");                
+                InsertarCambio("Dilatation");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Dilatation(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -229,7 +234,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("Erosion");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Erosion(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -244,7 +249,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("BlobsFiltering");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.BlobsFiltering(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -259,7 +264,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("GaussianSharpen");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.GaussianSharpen(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -274,7 +279,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("Invert");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Invert(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -289,7 +294,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("Opening");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Opening(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -304,7 +309,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("Sharpen");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Sharpen(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -319,7 +324,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("Median");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Median(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -336,7 +341,7 @@ namespace Captcha_Solver_Gui
                 if (actual != null && anterior != null)
                 {
                     actual = MethodsImagenFilter.CopyBitmap(anterior);
-                    pictureBox1.Image = actual;
+                    pictureBoxImage.Image = actual;
                     RemoverMudanca();
                 }
             }
@@ -353,7 +358,7 @@ namespace Captcha_Solver_Gui
                 if (actual != null && original != null)
                 {
                     actual = MethodsImagenFilter.CopyBitmap(original);
-                    pictureBox1.Image = actual;
+                    pictureBoxImage.Image = actual;
                     ZerarMudanca();
                 }
             }
@@ -385,7 +390,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("Shrink");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Shrink(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -400,7 +405,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("TirarBorda");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.TirarBorda(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -413,9 +418,9 @@ namespace Captcha_Solver_Gui
             try
             {
                 InsertarCambio("Tirar Pixel Branco Só");
-                anterior = MethodsImagenFilter.CopyBitmap(actual);                
+                anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.PintarBrancoEntrePretos(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -428,9 +433,9 @@ namespace Captcha_Solver_Gui
             try
             {
                 InsertarCambio("Colorido para Branco");
-                anterior = MethodsImagenFilter.CopyBitmap(actual);                
+                anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.PintarPixelPretoDeBranco(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -443,9 +448,9 @@ namespace Captcha_Solver_Gui
             try
             {
                 InsertarCambio("EngrossarLinhas");
-                anterior = MethodsImagenFilter.CopyBitmap(actual);                
+                anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.engrossarLinhaPreto(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -461,7 +466,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.TirarPixelSozinho(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -477,7 +482,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.RetirarTodasAsCoresEColocarNaImagemFinal(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -493,7 +498,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.TirarPixelPretoSozinhoHorizontal(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -509,7 +514,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.TirarPixelPretoSozinhoVertical(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -525,7 +530,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.TirarPixelPretoEntreBranco2Horizontal(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -541,7 +546,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.TirarPixelPretoEntreBranco3Horizontal(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -949,7 +954,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = FA_Tirar2PixelsPretosEntreBrancos(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -966,7 +971,7 @@ namespace Captcha_Solver_Gui
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = FA_TirarPixelPretoSozinhoNaHorizontal(actual);
                 actual = FA_TirarPixelPretoSozinhoNaVertical(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -981,7 +986,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("TirarBorda - Baixa");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.TirarBordaBaixa(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1005,10 +1010,10 @@ namespace Captcha_Solver_Gui
         {
             try
             {
-                InsertarCambio("Median2");                
+                InsertarCambio("Median2");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Median2(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1023,7 +1028,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("Mean");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Mean(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1038,7 +1043,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("BilateralSmoothing");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.BilateralSmoothing(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1066,7 +1071,7 @@ namespace Captcha_Solver_Gui
             };
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Convolution(actual, kernel, 4);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1082,7 +1087,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.RetirarBolinha(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1093,9 +1098,9 @@ namespace Captcha_Solver_Gui
         private void button54_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
-                
+
                 for (int j = 0; j < 4; j++)
                 {
                     actual = MethodsImagenFilter.BrightnessCorrection(actual);
@@ -1108,7 +1113,7 @@ namespace Captcha_Solver_Gui
                 actual = MethodsImagenFilter.ContrastCorrection(actual);
                 actual = MethodsImagenFilter.TirarBordaTRF4(actual);
                 actual = MethodsImagenFilter.RetirarBolinha(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1120,12 +1125,12 @@ namespace Captcha_Solver_Gui
         {
             try
             {
-                InsertarCambio("TRT21");                
-                anterior = MethodsImagenFilter.CopyBitmap(actual);                
+                InsertarCambio("TRT21");
+                anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.TirarBordaTRT21(actual);
                 actual = MethodsImagenFilter.PintarPixelPretoDeBranco(actual);
                 actual = MethodsImagenFilter.Opening(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1138,9 +1143,9 @@ namespace Captcha_Solver_Gui
             try
             {
                 InsertarCambio("diminuir");
-                anterior = MethodsImagenFilter.CopyBitmap(actual);                
+                anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.ResizeNearestNeighbor(actual, actual.Width / 2, actual.Height / 2);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1155,7 +1160,7 @@ namespace Captcha_Solver_Gui
                 InsertarCambio("aumentar");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.ResizeNearestNeighbor(actual, actual.Width * 2, actual.Height * 2);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1172,10 +1177,10 @@ namespace Captcha_Solver_Gui
             { 5,-1, 5 },
             {-1,20,-1 },
             { 5,-1, 5 }
-            };                
+            };
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = MethodsImagenFilter.Convolution(actual, kernel, 4);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1191,7 +1196,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.TirarBordaRS(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1207,7 +1212,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.TirarBordaCima(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1218,7 +1223,7 @@ namespace Captcha_Solver_Gui
         private void button75_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 InsertarCambio("Pegar Azul");
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
@@ -1228,7 +1233,7 @@ namespace Captcha_Solver_Gui
                 actual = MethodsImagenFilter.TirarPixelSozinho(actual);
                 actual = MethodsImagenFilter.Erosion(actual);
                 actual = MethodsImagenFilter.Median(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1244,7 +1249,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.Limpar2PX(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1260,7 +1265,7 @@ namespace Captcha_Solver_Gui
                 anterior = MethodsImagenFilter.CopyBitmap(actual);
                 actual = actual.Clone(new Rectangle(0, 0, actual.Width, actual.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 actual = MethodsImagenFilter.PintarPixelPretoDeBranco2(actual);
-                pictureBox1.Image = actual;
+                pictureBoxImage.Image = actual;
             }
             catch (Exception ex)
             {
@@ -1273,6 +1278,49 @@ namespace Captcha_Solver_Gui
             open_file(str_file);
             richTextBox1.Text = string.Empty;
             resultado.Text = string.Empty;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Left = 0;
+            this.Top = 0;
+        }
+
+        private void btnCheckDirectionImage_Click(object sender, EventArgs e)
+        {
+            f_image_checkDirection();
+        }
+
+        private void choseOcrExecute_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            f_image_choseOcrExecute(choseOcrExecute.SelectedText);
+        }
+
+        private void btnOcrExecute_Click(object sender, EventArgs e)
+        {
+            f_ocrExecute();
+        }
+
+        #endregion
+
+        string m_ScriptSelected = string.Empty;
+
+        Dictionary<string, string[]> _scripts = new Dictionary<string, string[]>() { 
+        
+        };
+
+        void f_Log() { }
+
+        void f_image_checkDirection() { 
+        
+        }
+
+        void f_image_choseOcrExecute(string scriptName) { 
+        
+        }
+
+        void f_ocrExecute() { 
+        
         }
     }
 }
