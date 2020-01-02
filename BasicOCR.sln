@@ -25,9 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCR", "OCR\OCR.csproj", "{3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tesseract", "Tesseract", "{FD240FC3-08A9-41D8-BBD9-1793929745A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_3.3.0", "ConvertBitmapToPix\Test_3.3.0.csproj", "{AAC26591-3C61-47B5-BDFE-B7778B99924A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseract_Test_3.3.0", "ConvertBitmapToPix\Tesseract_Test_3.3.0.csproj", "{AAC26591-3C61-47B5-BDFE-B7778B99924A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Tesseract_3.0.1_net2x86", "Test_Tesseract_3.0.1_net2\Test_Tesseract_3.0.1_net2x86.csproj", "{3A9B2425-13CD-4D5A-BF89-6DB94A8BA42C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Tesseract_3.0.1_IPoVn_net2x86", "Test_Tesseract_3.0.1_net2\Test_Tesseract_3.0.1_IPoVn_net2x86.csproj", "{3A9B2425-13CD-4D5A-BF89-6DB94A8BA42C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseract_AForge.NET_Captcha", "Tesseract_AForge.NET_Captcha\RecogCaptcha\Tesseract_AForge.NET_Captcha.csproj", "{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}"
 EndProject

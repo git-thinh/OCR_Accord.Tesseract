@@ -16,6 +16,7 @@ C:\Git\OCR\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng
 C:\Git\OCR\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\RecogCaptcha.exe.config
 C:\Git\OCR\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\RecogCaptcha.exe
 C:\Git\OCR\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\RecogCaptcha.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\Tesseract_AForge.NET_Captcha.csprojAssemblyReference.cache
 C:\Git\OCR\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\RecogCaptcha.Form1.resources
 C:\Git\OCR\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\RecogCaptcha.Properties.Resources.resources
 C:\Git\OCR\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\Tesseract_AForge.NET_Captcha.csproj.GenerateResource.cache
