@@ -1,0 +1,14 @@
+C:\Git\OCR\AForge.NET\Git\Sources\Accord.Math\bin\Debug\Accord.Math.dll
+C:\Git\OCR\AForge.NET\Git\Sources\Accord.Math\bin\Debug\Accord.Math.pdb
+C:\Git\OCR\AForge.NET\Git\Sources\Accord.Math\bin\Debug\AForge.dll
+C:\Git\OCR\AForge.NET\Git\Sources\Accord.Math\bin\Debug\AForge.Math.dll
+C:\Git\OCR\AForge.NET\Git\Sources\Accord.Math\obj\Debug\Accord.Math.csprojAssemblyReference.cache
+C:\Git\OCR\AForge.NET\Git\Sources\Accord.Math\obj\Debug\Accord.Math.csproj.CopyComplete
+C:\Git\OCR\AForge.NET\Git\Sources\Accord.Math\obj\Debug\Accord.Math.dll
+C:\Git\OCR\AForge.NET\Git\Sources\Accord.Math\obj\Debug\Accord.Math.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\src\Accord.Math\bin\Debug\Accord.Math.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\src\Accord.Math\bin\Debug\Accord.Math.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\src\Accord.Math\obj\Debug\Accord.Math.csprojAssemblyReference.cache
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\src\Accord.Math\obj\Debug\Accord.Math.csproj.CopyComplete
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\src\Accord.Math\obj\Debug\Accord.Math.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Accord.Net\src\Accord.Math\obj\Debug\Accord.Math.pdb
