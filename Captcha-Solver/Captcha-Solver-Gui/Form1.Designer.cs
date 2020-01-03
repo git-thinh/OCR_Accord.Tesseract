@@ -83,37 +83,37 @@
             this.button55 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnOcrExecute = new System.Windows.Forms.Button();
+            this.choseOcrExecute = new System.Windows.Forms.ComboBox();
             this.btn_reset = new System.Windows.Forms.Button();
+            this.gbFiltros = new System.Windows.Forms.Panel();
+            this.btnCheckDirectionImage = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pictureBoxRegions = new System.Windows.Forms.PictureBox();
-            this.gbFiltros = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.choseOcrExecute = new System.Windows.Forms.ComboBox();
-            this.btnCheckDirectionImage = new System.Windows.Forms.Button();
-            this.btnOcrExecute = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.gbFiltros.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegions)).BeginInit();
-            this.gbFiltros.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -707,6 +707,29 @@
             this.panel3.Size = new System.Drawing.Size(1799, 128);
             this.panel3.TabIndex = 88;
             // 
+            // btnOcrExecute
+            // 
+            this.btnOcrExecute.BackColor = System.Drawing.Color.Red;
+            this.btnOcrExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOcrExecute.ForeColor = System.Drawing.Color.White;
+            this.btnOcrExecute.Location = new System.Drawing.Point(47, 26);
+            this.btnOcrExecute.Name = "btnOcrExecute";
+            this.btnOcrExecute.Size = new System.Drawing.Size(75, 28);
+            this.btnOcrExecute.TabIndex = 83;
+            this.btnOcrExecute.Text = "OCR";
+            this.btnOcrExecute.UseVisualStyleBackColor = false;
+            this.btnOcrExecute.Click += new System.EventHandler(this.btnOcrExecute_Click);
+            // 
+            // choseOcrExecute
+            // 
+            this.choseOcrExecute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.choseOcrExecute.FormattingEnabled = true;
+            this.choseOcrExecute.Location = new System.Drawing.Point(47, 3);
+            this.choseOcrExecute.Name = "choseOcrExecute";
+            this.choseOcrExecute.Size = new System.Drawing.Size(138, 21);
+            this.choseOcrExecute.TabIndex = 88;
+            this.choseOcrExecute.SelectedIndexChanged += new System.EventHandler(this.choseOcrExecute_SelectedIndexChanged);
+            // 
             // btn_reset
             // 
             this.btn_reset.BackColor = System.Drawing.Color.Blue;
@@ -718,59 +741,6 @@
             this.btn_reset.Text = "Reset";
             this.btn_reset.UseVisualStyleBackColor = false;
             this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 128);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1799, 655);
-            this.tabControl1.TabIndex = 90;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1791, 629);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Processing";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxImage
-            // 
-            this.pictureBoxImage.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxImage.Location = new System.Drawing.Point(530, 0);
-            this.pictureBoxImage.Name = "pictureBoxImage";
-            this.pictureBoxImage.Size = new System.Drawing.Size(615, 318);
-            this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxImage.TabIndex = 0;
-            this.pictureBoxImage.TabStop = false;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.pictureBoxRegions);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1791, 629);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Result Regions";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxRegions
-            // 
-            this.pictureBoxRegions.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxRegions.Name = "pictureBoxRegions";
-            this.pictureBoxRegions.Size = new System.Drawing.Size(1785, 591);
-            this.pictureBoxRegions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxRegions.TabIndex = 0;
-            this.pictureBoxRegions.TabStop = false;
             // 
             // gbFiltros
             // 
@@ -828,16 +798,38 @@
             this.gbFiltros.Size = new System.Drawing.Size(1427, 126);
             this.gbFiltros.TabIndex = 1;
             // 
-            // panel1
+            // btnCheckDirectionImage
             // 
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBoxImage);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1785, 318);
-            this.panel1.TabIndex = 2;
+            this.btnCheckDirectionImage.Location = new System.Drawing.Point(787, 5);
+            this.btnCheckDirectionImage.Name = "btnCheckDirectionImage";
+            this.btnCheckDirectionImage.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckDirectionImage.TabIndex = 82;
+            this.btnCheckDirectionImage.Text = "Chiều ảnh";
+            this.btnCheckDirectionImage.UseVisualStyleBackColor = true;
+            this.btnCheckDirectionImage.Click += new System.EventHandler(this.btnCheckDirectionImage_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 128);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1799, 655);
+            this.tabControl1.TabIndex = 90;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel4);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1791, 629);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Processing";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -850,33 +842,6 @@
             this.panel4.Size = new System.Drawing.Size(1785, 305);
             this.panel4.TabIndex = 0;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(1145, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(640, 318);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(530, 305);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox4.Location = new System.Drawing.Point(530, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(615, 305);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Info;
@@ -888,38 +853,73 @@
             this.panel5.Size = new System.Drawing.Size(640, 305);
             this.panel5.TabIndex = 4;
             // 
-            // choseOcrExecute
+            // pictureBox4
             // 
-            this.choseOcrExecute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.choseOcrExecute.FormattingEnabled = true;
-            this.choseOcrExecute.Location = new System.Drawing.Point(47, 3);
-            this.choseOcrExecute.Name = "choseOcrExecute";
-            this.choseOcrExecute.Size = new System.Drawing.Size(138, 21);
-            this.choseOcrExecute.TabIndex = 88;
-            this.choseOcrExecute.SelectedIndexChanged += new System.EventHandler(this.choseOcrExecute_SelectedIndexChanged);
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox4.Location = new System.Drawing.Point(530, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(615, 305);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
             // 
-            // btnCheckDirectionImage
+            // pictureBox3
             // 
-            this.btnCheckDirectionImage.Location = new System.Drawing.Point(787, 5);
-            this.btnCheckDirectionImage.Name = "btnCheckDirectionImage";
-            this.btnCheckDirectionImage.Size = new System.Drawing.Size(75, 23);
-            this.btnCheckDirectionImage.TabIndex = 82;
-            this.btnCheckDirectionImage.Text = "Chiều ảnh";
-            this.btnCheckDirectionImage.UseVisualStyleBackColor = true;
-            this.btnCheckDirectionImage.Click += new System.EventHandler(this.btnCheckDirectionImage_Click);
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(530, 305);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
-            // btnOcrExecute
+            // panel1
             // 
-            this.btnOcrExecute.BackColor = System.Drawing.Color.Red;
-            this.btnOcrExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOcrExecute.ForeColor = System.Drawing.Color.White;
-            this.btnOcrExecute.Location = new System.Drawing.Point(47, 26);
-            this.btnOcrExecute.Name = "btnOcrExecute";
-            this.btnOcrExecute.Size = new System.Drawing.Size(75, 28);
-            this.btnOcrExecute.TabIndex = 83;
-            this.btnOcrExecute.Text = "OCR";
-            this.btnOcrExecute.UseVisualStyleBackColor = false;
-            this.btnOcrExecute.Click += new System.EventHandler(this.btnOcrExecute_Click);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBoxImage);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1785, 318);
+            this.panel1.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(1145, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(640, 318);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBoxImage
+            // 
+            this.pictureBoxImage.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxImage.Location = new System.Drawing.Point(530, 0);
+            this.pictureBoxImage.Name = "pictureBoxImage";
+            this.pictureBoxImage.Size = new System.Drawing.Size(615, 318);
+            this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxImage.TabIndex = 0;
+            this.pictureBoxImage.TabStop = false;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.pictureBoxRegions);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1791, 629);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Result Regions";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxRegions
+            // 
+            this.pictureBoxRegions.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxRegions.Name = "pictureBoxRegions";
+            this.pictureBoxRegions.Size = new System.Drawing.Size(1785, 591);
+            this.pictureBoxRegions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRegions.TabIndex = 0;
+            this.pictureBoxRegions.TabStop = false;
             // 
             // Form1
             // 
@@ -939,19 +939,19 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.gbFiltros.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegions)).EndInit();
-            this.gbFiltros.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
