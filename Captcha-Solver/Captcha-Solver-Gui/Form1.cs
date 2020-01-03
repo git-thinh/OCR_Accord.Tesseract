@@ -26,7 +26,7 @@ namespace Captcha_Solver_Gui
         {
             InitializeComponent();
             //pictureBox1.Image = new Bitmap($"{Environment.CurrentDirectory}\\img\\informacao.bmp");
-            choseOcrExecute.Items.AddRange(___ImageFilters.getScriptNames());
+            //choseOcrExecute.Items.AddRange(___ImageFilters.getScriptNames());
         }
 
         private void button1_Click(object sender, EventArgs e)

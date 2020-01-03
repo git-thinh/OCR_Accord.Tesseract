@@ -132,6 +132,9 @@
     <Compile Include="Libs\System.Linq\Tuple\IStructuralComparable.cs" />
     <Compile Include="Libs\System.Linq\Tuple\IStructuralEquatable.cs" />
     <Compile Include="Libs\System.Linq\Tuple\Tuple.cs" />
+    <Compile Include="ToolTipComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TYPE_FEATURE.cs" />
     <Compile Include="___ImageFilters.cs" />
     <Compile Include="Program.cs" />

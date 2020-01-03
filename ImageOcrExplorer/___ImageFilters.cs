@@ -904,7 +904,12 @@ namespace System
             return img;
         }
 
-        static Bitmap CopyBitmap(Bitmap source)
+        public static Bitmap CopyBitmap(this Bitmap source)
+        {
+            return new Bitmap(source);
+        }
+
+        public static Bitmap CloneBitmap(this Bitmap source)
         {
             return new Bitmap(source);
         }
