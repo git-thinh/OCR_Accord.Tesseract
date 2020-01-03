@@ -50,11 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="fMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Libs\IconFont\FontAwesome.cs" />
+    <Compile Include="Libs\IconFont\TestFormIconFont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Libs\IconFont\TestFormIconFont.designer.cs">
+      <DependentUpon>TestFormIconFont.cs</DependentUpon>
     </Compile>
     <Compile Include="Libs\IPoVnSystem\KernelHelper.cs" />
     <Compile Include="Libs\IPoVnSystem\Parallel.cs" />
@@ -128,9 +132,13 @@
     <Compile Include="Libs\System.Linq\Tuple\IStructuralComparable.cs" />
     <Compile Include="Libs\System.Linq\Tuple\IStructuralEquatable.cs" />
     <Compile Include="Libs\System.Linq\Tuple\Tuple.cs" />
+    <Compile Include="TYPE_FEATURE.cs" />
     <Compile Include="___ImageFilters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Libs\IconFont\TestFormIconFont.resx">
+      <DependentUpon>TestFormIconFont.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
