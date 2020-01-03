@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Security;
 using System.Text;
 using System.Windows.Forms;
 
@@ -33,7 +35,7 @@ namespace ImageOcrExplorer
         ComboBox ui_scriptComboBox;
 
         CheckedListBox ui_scriptListFilters;
-        CheckedListBox ui_fileList;
+        FlowLayoutPanel ui_fileList;
 
         FlowLayoutPanel ui_filterConfigForm;
 
@@ -56,8 +58,8 @@ namespace ImageOcrExplorer
             });
 
             this.WindowState = FormWindowState.Maximized;
-            this.MaximizeBox = false;
-             
+            //this.MaximizeBox = false;
+
             ui_panelExplorer = new Panel() { Dock = DockStyle.Left, Width = 250, BackColor = Color.Gray };
             this.Controls.Add(ui_panelExplorer);
 
@@ -68,30 +70,33 @@ namespace ImageOcrExplorer
             ui_panelImages = new Panel() { Dock = DockStyle.Fill, BackColor = Color.White };
             this.Controls.Add(ui_panelImages);
 
-            //this.Shown += (se, ev) => {
-            //    ui_panelExplorer.SendToBack();
-            //    ui_panelImages.BringToFront(); 
-            //};
+            this.Shown += (se, ev) =>
+            {
+                this.Top = 0;
+                this.Left = 0;
+                this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+                this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            };
             this.Controls.Add(ui_menu);
 
             //----------------------------------------------------------------------------------------------------------------------------
             // FILTER
 
-            var ui_filterRemove = new PictureBox() {  Image = ui_iconRemove, Dock = DockStyle.Right, Width = 24, SizeMode = PictureBoxSizeMode.CenterImage };
-            var ui_filterApplyToImage = new PictureBox() { Image = ui_iconImage, Dock = DockStyle.Right, Width = 24, SizeMode = PictureBoxSizeMode.CenterImage }; 
-            
+            var ui_filterRemove = new PictureBox() { Image = ui_iconRemove, Dock = DockStyle.Right, Width = 24, SizeMode = PictureBoxSizeMode.CenterImage };
+            var ui_filterApplyToImage = new PictureBox() { Image = ui_iconImage, Dock = DockStyle.Right, Width = 24, SizeMode = PictureBoxSizeMode.CenterImage };
+
             ui_filterComboBox = new ComboBox() { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Fill };
             var ui_filterBox = new Panel() { Dock = DockStyle.Top, Height = 25, BackColor = Color.DodgerBlue, Padding = new Padding(0, 3, 0, 0) };
             ui_filterBox.Controls.AddRange(new Control[] {
                 new Label() { Text = "Filters", Dock = DockStyle.Left, Width = 35, TextAlign = ContentAlignment.MiddleCenter },
-                ui_filterComboBox, 
+                ui_filterComboBox,
                 ui_filterRemove,
                 new Label() { Text = "", Dock = DockStyle.Right, Width = 3 },
                 ui_filterApplyToImage });
             ui_panelExplorer.Controls.Add(ui_filterBox);
             ui_filterRemove.Click += (se, ev) => { f_execute_features(TYPE_FEATURE.FILTER_REMOVE_FROM_SCRIPT, ui_filterComboBox.SelectedText); };
 
-            ui_filterConfigForm = new FlowLayoutPanel() { Dock = DockStyle.Top, Height = 150, BackColor = Color.DodgerBlue }; 
+            ui_filterConfigForm = new FlowLayoutPanel() { Dock = DockStyle.Top, Height = 150, BackColor = Color.DodgerBlue };
             ui_panelExplorer.Controls.Add(ui_filterConfigForm);
             ui_filterConfigForm.BringToFront();
 
@@ -101,7 +106,7 @@ namespace ImageOcrExplorer
             ui_hrBox1.Controls.Add(new Label() { AutoSize = false, Text = "", Height = 1, Dock = DockStyle.Top, BackColor = Color.Black });
             ui_panelExplorer.Controls.Add(ui_hrBox1);
             ui_hrBox1.BringToFront();
-            
+
             //----------------------------------------------------------------------------------------------------------------------------
             // SCRIPT
 
@@ -113,13 +118,13 @@ namespace ImageOcrExplorer
             ui_scriptBox.Controls.AddRange(new Control[] {
                 new Label() { Text = "Script", Dock = DockStyle.Left, Width = 35, TextAlign = ContentAlignment.MiddleCenter },
                 ui_scriptComboBox,
-                ui_scriptRemove, 
+                ui_scriptRemove,
                 new Label() { Text = "", Dock = DockStyle.Right, Width = 3 },
                 ui_scriptApplyToImage });
             ui_panelExplorer.Controls.Add(ui_scriptBox);
             ui_scriptRemove.Click += (se, ev) => { f_execute_features(TYPE_FEATURE.FILTER_REMOVE_FROM_SCRIPT, ui_filterComboBox.SelectedText); };
             ui_scriptBox.BringToFront();
-            
+
             ui_scriptListFilters = new CheckedListBox() { Dock = DockStyle.Top, Height = 150, BackColor = Color.DodgerBlue, BorderStyle = BorderStyle.None };
             ui_panelExplorer.Controls.Add(ui_scriptListFilters);
             ui_scriptListFilters.BringToFront();
@@ -134,9 +139,8 @@ namespace ImageOcrExplorer
             //----------------------------------------------------------------------------------------------------------------------------
             // LIST FILES
 
-
-            var ui_fileOpen = new PictureBox() { Image = ui_iconFolder, Dock = DockStyle.Right, Width = 24, SizeMode = PictureBoxSizeMode.CenterImage }; 
-
+            var ui_fileOpen = new PictureBox() { Image = ui_iconFolder, Dock = DockStyle.Right, Width = 24, SizeMode = PictureBoxSizeMode.CenterImage };
+            ui_fileOpen.Click += (se, ev) => { f_execute_features(TYPE_FEATURE.OPEN_FILES); };
             var ui_fileSearchTextbox = new TextBox() { Dock = DockStyle.Fill, BackColor = SystemColors.Control };
             var ui_fileBox = new Panel() { Dock = DockStyle.Top, Height = 25, BackColor = Color.DodgerBlue, Padding = new Padding(0, 0, 0, 3) };
             ui_fileBox.Controls.AddRange(new Control[] {
@@ -144,12 +148,22 @@ namespace ImageOcrExplorer
                 ui_fileSearchTextbox,
                 ui_fileOpen});
             ui_panelExplorer.Controls.Add(ui_fileBox);
-            ui_fileOpen.Click += (se, ev) => { f_execute_features(TYPE_FEATURE.FILTER_REMOVE_FROM_SCRIPT, ui_filterComboBox.SelectedText); };
             ui_fileBox.BringToFront();
 
-            ui_fileList = new CheckedListBox() { Dock = DockStyle.Fill, Height = 150, BackColor = SystemColors.Control, BorderStyle = BorderStyle.None };
+            ui_fileList = new FlowLayoutPanel()
+            {
+                AutoScroll = true,
+                RightToLeft = RightToLeft.Yes,
+                FlowDirection = FlowDirection.LeftToRight,
+                Dock = DockStyle.Fill,
+                Height = 150,
+                BackColor = Color.DodgerBlue,
+                BorderStyle = BorderStyle.None,
+                Padding = new Padding(0),
+                Margin = new Padding(0)
+            };
             ui_panelExplorer.Controls.Add(ui_fileList);
-            ui_fileList.BringToFront(); 
+            ui_fileList.BringToFront();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -169,6 +183,8 @@ namespace ImageOcrExplorer
 
         #endregion
 
+        string[] m_files = new string[] { };
+
         object f_execute_features(TYPE_FEATURE type, object para = null)
         {
             switch (type)
@@ -179,6 +195,59 @@ namespace ImageOcrExplorer
                 case TYPE_FEATURE.OPEN_FOLDER:
                     break;
                 case TYPE_FEATURE.OPEN_FILES:
+                    OpenFileDialog dlg = new OpenFileDialog();
+                    dlg.Filter = "Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+                    dlg.Multiselect = true;
+                    dlg.Title = "Select images";
+
+                    DialogResult dr = dlg.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        m_files = dlg.FileNames;
+
+                        int w = ui_fileList.Width - 30;
+                        foreach (String file in m_files)
+                        {
+                            try
+                            {
+                                ui_fileList.Controls.Add(new Label()
+                                {
+                                    Width = w,
+                                    Text = Path.GetFileName(file),
+                                    Height = 16, 
+                                    RightToLeft = RightToLeft.No
+                                });
+
+                                PictureBox p = new PictureBox();
+                                Image img = Image.FromFile(file);
+                                int h = (int)((ui_fileList.Width * img.Height) / img.Width);
+
+                                p.Width = w;
+                                p.Height = h;
+
+                                p.Image = img;
+                                p.SizeMode = PictureBoxSizeMode.StretchImage;
+                                ui_fileList.Controls.Add(p);
+
+                                ui_fileList.Controls.Add(new Label() { Width = w, Text = "", Height = 7 });
+                            }
+                            catch (SecurityException ex)
+                            {
+                                // The user lacks appropriate permissions to read files, discover paths, etc.
+                                MessageBox.Show("Security error. Please contact your administrator for details.\n\n" +
+                                    "Error message: " + ex.Message + "\n\n" +
+                                    "Details (send to Support):\n\n" + ex.StackTrace
+                                );
+                            }
+                            catch (Exception ex)
+                            {
+                                // Could not load the image - probably related to Windows file system permissions.
+                                MessageBox.Show("Cannot display the image: " + file.Substring(file.LastIndexOf('\\'))
+                                    + ". You may not have permission to read the file, or " +
+                                    "it may be corrupt.\n\nReported error: " + ex.Message);
+                            }
+                        }
+                    }
                     break;
                 case TYPE_FEATURE.RECENT_OPEN:
                     break;
