@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Security;
 using System.Windows.Forms;
 
@@ -8,12 +10,18 @@ namespace ImageOcrExplorer
 {
     public class fMain : Form
     {
-        #region [ FORM BASE ]
+        #region [ MEMBER ]
 
-        public fMain()
-        {
-            f_base_Init();
-        }
+        int IMG_WIDTH = 0, IMG_HEIGHT = 0;
+        bool FILTER_EXECUTE_AUTO_CHANGED = true;
+
+        string[] M_FILES = new string[] { };
+        string M_FILTER_SELECTED = "";
+        string M_SCRIPT_SELECTED = "";
+
+        #endregion
+
+        #region [ VARIABLE ]
 
         MenuStrip ui_menu;
         ToolStripMenuItem ui_menuFile;
@@ -40,6 +48,17 @@ namespace ImageOcrExplorer
         PictureBox ui_imageOrigin;
         
         ToolTip ui_tooltip;
+
+
+
+        #endregion
+
+        #region [ FORM BASE ]
+
+        public fMain()
+        {
+            f_base_Init();
+        }
 
         void f_base_Init()
         {
@@ -94,7 +113,7 @@ namespace ImageOcrExplorer
             var ui_filterApplyToImage = new PictureBox() { Image = ui_iconImage, Dock = DockStyle.Right, Width = 24, SizeMode = PictureBoxSizeMode.CenterImage };
 
             ui_filterComboBox = new ToolTipComboBox() { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Fill };
-            ui_filterComboBox.SelectedIndexChanged += (se, ev) => { m_filterSelected = ui_filterComboBox.SelectedItem as string; };
+            ui_filterComboBox.SelectedIndexChanged += (se, ev) => { M_FILTER_SELECTED = ui_filterComboBox.SelectedItem as string; };
 
             var ui_filterBox = new Panel() { Dock = DockStyle.Top, Height = 25, BackColor = Color.DodgerBlue, Padding = new Padding(0, 3, 0, 0) };
             ui_filterBox.Controls.AddRange(new Control[] {
@@ -106,9 +125,9 @@ namespace ImageOcrExplorer
                 new Label() { Text = "", Dock = DockStyle.Right, Width = 3 },
                 ui_filterApplyToImage });
             ui_panelExplorer.Controls.Add(ui_filterBox);
-            ui_filterRemove.Click += (se, ev) => { f_execute_features(TYPE_FEATURE.FILTER_REMOVE_FROM_SCRIPT, m_filterSelected); };
+            ui_filterRemove.Click += (se, ev) => { f_execute_features(TYPE_FEATURE.FILTER_REMOVE_FROM_SCRIPT, M_FILTER_SELECTED); };
             ui_filterApplyToImage.Click += (se, ev) => {
-                f_execute_features(TYPE_FEATURE.FILTER_SELECTED_ITEM_EXECUTE, m_filterSelected);
+                f_execute_features(TYPE_FEATURE.FILTER_SELECTED_ITEM_EXECUTE, M_FILTER_SELECTED);
             };
 
             ui_filterConfigForm = new FlowLayoutPanel() { Dock = DockStyle.Top, Height = 150, BackColor = Color.DodgerBlue };
@@ -135,7 +154,7 @@ namespace ImageOcrExplorer
             var ui_scriptApplyToImage = new PictureBox() { Image = ui_iconImage, Dock = DockStyle.Right, Width = 24, SizeMode = PictureBoxSizeMode.CenterImage };
 
             ui_scriptComboBox = new ComboBox() { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Fill };
-            ui_scriptComboBox.SelectedIndexChanged += (se, ev) => { m_scriptSelected = ui_scriptComboBox.SelectedItem as string; };
+            ui_scriptComboBox.SelectedIndexChanged += (se, ev) => { M_SCRIPT_SELECTED = ui_scriptComboBox.SelectedItem as string; };
             var ui_scriptBox = new Panel() { Dock = DockStyle.Top, Height = 22, BackColor = Color.DodgerBlue };
             ui_scriptBox.Controls.AddRange(new Control[] {
                 //new Label() { Text = "Script", Dock = DockStyle.Left, Width = 35, TextAlign = ContentAlignment.MiddleCenter },
@@ -228,9 +247,6 @@ namespace ImageOcrExplorer
 
         }
 
-        int IMG_WIDTH = 0, IMG_HEIGHT = 0;
-        bool FILTER_EXECUTE_AUTO_CHANGED = false;
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -248,7 +264,13 @@ namespace ImageOcrExplorer
         
         void f_base_Binding()
         {
-            ui_filterComboBox.Items.AddRange(___ImageFilters.getScriptNames());
+            List<string> ls = new List<string>();
+            ls.AddRange(___IMAGE_FILTERS.getScriptNames());
+            ls.AddRange(___IMAGE_DIRECTION.getScriptNames());
+            ls.AddRange(___OCR.getScriptNames());
+            ls = ls.OrderBy(x => x).ToList();
+
+            ui_filterComboBox.Items.AddRange(ls.ToArray());
             f_base_menuFilterBuilding();
             f_base_menuScriptBuilding();
         }
@@ -270,10 +292,6 @@ namespace ImageOcrExplorer
         }
 
         #endregion
-
-        string[] m_files = new string[] { };
-        string m_filterSelected = "";
-        string m_scriptSelected = "";
 
         object f_execute_features(TYPE_FEATURE type, object para = null)
         {
@@ -320,10 +338,10 @@ namespace ImageOcrExplorer
 
                     if (para != null)
                     {
-                        m_files = para as string[];
+                        M_FILES = para as string[];
 
                         int w = ui_fileList.Width - 30;
-                        foreach (String file in m_files)
+                        foreach (String file in M_FILES)
                         {
                             try
                             {
@@ -389,10 +407,10 @@ namespace ImageOcrExplorer
                         int h = w * 4 / 6;
 
 
-                        foreach (string filter in ___ImageFilters.getScriptNames())
+                        foreach (string filter in ___IMAGE_FILTERS.getScriptNames())
                         {
                             object config = null;
-                            Bitmap image = ___ImageFilters.Execute(filter, config, img);
+                            Bitmap image = ___IMAGE_FILTERS.Execute(filter, config, img);
 
                             //ui_panelImages.Controls.Add(new Label()
                             //{
@@ -426,7 +444,7 @@ namespace ImageOcrExplorer
                         string filter = para as string;
 
                         object config = null;
-                        Bitmap image = ___ImageFilters.Execute(filter, config, img);
+                        Bitmap image = ___IMAGE_FILTERS.Execute(filter, config, img);
 
                         //ui_panelImages.Controls.Add(new Label()
                         //{

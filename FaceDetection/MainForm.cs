@@ -70,6 +70,7 @@ namespace SampleApp
         {
             var dlg = new OpenFileDialog()
             {
+                InitialDirectory = Environment.CurrentDirectory,
                 FileName = "Select a image file",
                 Filter = "Image files (*.jpg)|*.jpg",
                 Title = "Open image file"
@@ -98,14 +99,14 @@ namespace SampleApp
             detector.UseParallelProcessing = cbParallel.Checked;
             detector.Suppression = 2;
 
-            Stopwatch sw = Stopwatch.StartNew();
+            //Stopwatch sw = Stopwatch.StartNew();
 
 
             // Process frame to detect objects
             Rectangle[] objects = detector.ProcessFrame(picture);
 
 
-            sw.Stop();
+            //sw.Stop();
 
 
             if (objects.Length > 0)
@@ -114,8 +115,7 @@ namespace SampleApp
                 pictureBox1.Image = marker.Apply(picture);
             }
 
-            toolStripStatusLabel1.Text = string.Format("Completed detection of {0} objects in {1}.",
-                objects.Length, sw.Elapsed);
+            //toolStripStatusLabel1.Text = string.Format("Completed detection of {0} objects in {1}.", objects.Length, sw.Elapsed);
         }
 
         private void loadImageButton_Click(object sender, EventArgs e)
