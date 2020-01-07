@@ -78,8 +78,8 @@ namespace ImageOcrExplorer
                 new ToolStripMenuItem("Exit", null, new EventHandler((se,ev) => f_execute_features(TYPE_FEATURE.EXIT))),
             });
 
-            this.WindowState = FormWindowState.Maximized;
-            //this.MaximizeBox = false;
+            //this.WindowState = FormWindowState.Maximized;
+            this.MaximizeBox = false;
 
             ui_panelExplorer = new Panel() { Dock = DockStyle.Left, Width = 250, BackColor = Color.Gray };
             this.Controls.Add(ui_panelExplorer);
@@ -267,7 +267,7 @@ namespace ImageOcrExplorer
             List<string> ls = new List<string>();
             ls.AddRange(___IMAGE_FILTERS.getScriptNames());
             ls.AddRange(___IMAGE_DIRECTION.getScriptNames());
-            ls.AddRange(___OCR.getScriptNames());
+            ls.AddRange(___IMAGE_OCR.getScriptNames());
             ls = ls.OrderBy(x => x).ToList();
 
             ui_filterComboBox.Items.AddRange(ls.ToArray());
@@ -444,7 +444,23 @@ namespace ImageOcrExplorer
                         string filter = para as string;
 
                         object config = null;
-                        Bitmap image = ___IMAGE_FILTERS.Execute(filter, config, img);
+
+                        Bitmap image = null;
+                        string text = string.Empty;
+                        IMAGE_DIRECTION direct = null;
+
+                        if (___IMAGE_FILTERS.Exist(filter))
+                            image = ___IMAGE_FILTERS.Execute(filter, config, img);
+                        else if (___IMAGE_DIRECTION.Exist(filter))
+                        {
+                            direct = ___IMAGE_DIRECTION.Execute(filter, config, img);
+                            image = direct.Image;
+                        }
+                        else
+                        {
+                            text = ___IMAGE_OCR.Execute(filter, config, img);
+                            image = img;
+                        }
 
                         //ui_panelImages.Controls.Add(new Label()
                         //{

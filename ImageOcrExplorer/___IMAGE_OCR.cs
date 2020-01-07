@@ -7,7 +7,7 @@ using Tesseract;
 
 namespace ImageOcrExplorer
 {
-    public static class ___OCR
+    public static class ___IMAGE_OCR
     {
         //public static string DIR_TESSDATA = @"C:\IPoVn\Test\tessdata\";
         //public static string DIR_TESSDATA = @"tessdata\";
@@ -92,7 +92,8 @@ namespace ImageOcrExplorer
             return string.Empty;
         }
 
-        static bool Exist(this string name) => M_SCRIPTS.ContainsKey(name);
+        public static bool Exist(this string name) => M_SCRIPTS.ContainsKey(name);
+
         #endregion
 
     }

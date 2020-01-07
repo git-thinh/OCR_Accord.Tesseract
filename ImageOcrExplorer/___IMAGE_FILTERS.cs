@@ -926,7 +926,8 @@ namespace System
             return Imagem;
         }
 
-        static bool Exist(this string name) => M_SCRIPTS.ContainsKey(name);
+        public static bool Exist(this string name) => M_SCRIPTS.ContainsKey(name);
+
         #endregion
     }
 }

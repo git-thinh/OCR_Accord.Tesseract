@@ -106,7 +106,7 @@
     <Compile Include="___IMAGE_FILTERS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="___OCR.cs" />
+    <Compile Include="___IMAGE_OCR.cs" />
     <EmbeddedResource Include="Libs\IconFont\TestFormIconFont.resx">
       <DependentUpon>TestFormIconFont.cs</DependentUpon>
     </EmbeddedResource>
