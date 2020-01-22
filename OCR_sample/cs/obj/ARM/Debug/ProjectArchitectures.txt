@@ -1,0 +1,1 @@
+C:\Git\OCR\OCR_Accord.Tesseract\OCR_sample\cs\OCR.csproj;arm

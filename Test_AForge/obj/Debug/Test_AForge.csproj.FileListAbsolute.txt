@@ -4,3 +4,9 @@ D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csprojAssemblyRefe
 D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csproj.CopyComplete
 D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.exe
 D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\_build\Test_AForge\Test_AForge.exe
+C:\Git\OCR\OCR_Accord.Tesseract\_build\Test_AForge\Test_AForge.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csprojAssemblyReference.cache
+C:\Git\OCR\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csproj.CopyComplete
+C:\Git\OCR\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.exe
+C:\Git\OCR\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.pdb
