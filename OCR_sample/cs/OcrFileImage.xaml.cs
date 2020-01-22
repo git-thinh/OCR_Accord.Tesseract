@@ -179,29 +179,49 @@ namespace SDKTemplate
 
             OcrEngine ocrEngine = null;
 
-            if (UserLanguageToggle.IsOn)
-            {
-                // Try to create OcrEngine for first supported language from UserProfile.GlobalizationPreferences.Languages list.
-                // If none of the languages are available on device, method returns null.
-                ocrEngine = OcrEngine.TryCreateFromUserProfileLanguages();
-            }
-            else
-            {
+            //////if (UserLanguageToggle.IsOn)
+            //////{
+            //////    // Try to create OcrEngine for first supported language from UserProfile.GlobalizationPreferences.Languages list.
+            //////    // If none of the languages are available on device, method returns null.
+            //////    ocrEngine = OcrEngine.TryCreateFromUserProfileLanguages();
+            //////}
+            //////else
+            //////{
 
-                // Get the top user-preferred language and its display name.
-                var topUserLanguageCount = Windows.System.UserProfile.GlobalizationPreferences.Languages.Count;
-                var topUserLanguage = Windows.System.UserProfile.GlobalizationPreferences.Languages[1];
-                var language = new Windows.Globalization.Language(topUserLanguage);
-                var displayName = language.DisplayName;
+            //////    // Get the top user-preferred language and its display name.
+            //////    var topUserLanguageCount = Windows.System.UserProfile.GlobalizationPreferences.Languages.Count;
+            //////    var topUserLanguage = Windows.System.UserProfile.GlobalizationPreferences.Languages[1];
+            //////    var language = new Windows.Globalization.Language(topUserLanguage);
+            //////    var displayName = language.DisplayName;
 
 
-                // Try to create OcrEngine for specified language.
-                // If language is not supported on device, method returns null.
-                
-                //ocrEngine = OcrEngine.TryCreateFromLanguage(LanguageList.SelectedValue as Language);
+            //////    // Try to create OcrEngine for specified language.
+            //////    // If language is not supported on device, method returns null.
 
-                ocrEngine = OcrEngine.TryCreateFromLanguage(language);
-            }
+            //////    //ocrEngine = OcrEngine.TryCreateFromLanguage(LanguageList.SelectedValue as Language);
+
+            //////    ocrEngine = OcrEngine.TryCreateFromLanguage(language);
+            //////}
+
+
+
+            // Get the top user-preferred language and its display name.
+            var topUserLanguageCount = Windows.System.UserProfile.GlobalizationPreferences.Languages.Count;
+            var topUserLanguage = Windows.System.UserProfile.GlobalizationPreferences.Languages[1];
+            var language = new Windows.Globalization.Language(topUserLanguage);
+            var displayName = language.DisplayName;
+
+            bool ok = OcrEngine.IsLanguageSupported(language);
+
+            // Try to create OcrEngine for specified language.
+            // If language is not supported on device, method returns null.
+
+            //ocrEngine = OcrEngine.TryCreateFromLanguage(LanguageList.SelectedValue as Language);
+
+            ocrEngine = OcrEngine.TryCreateFromLanguage(language);
+
+
+
 
             if (ocrEngine != null)
             {
