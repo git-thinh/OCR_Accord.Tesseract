@@ -10,6 +10,19 @@ namespace System
         static Dictionary<string, Func<object, Bitmap, Bitmap>> M_SCRIPTS = new Dictionary<string, Func<object, Bitmap, Bitmap>>()
         {
             #region [ Filters AForge ]
+            
+            { "01_AF_Grey_Image", (config, Imagem) => {
+                Grayscale grayFilter = new Grayscale(0.2125, 0.7154, 0.0721);
+                Bitmap grImage = grayFilter.Apply(Imagem);
+                //grImage.Save("./grey_image.png");
+                return grImage;
+            }},
+            { "01_AF_Invert", (config, Imagem) => {
+                Invert filter = new Invert();
+                Imagem = Imagem.Clone(new Rectangle(0, 0, Imagem.Width, Imagem.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                Imagem = filter.Apply(Imagem);
+                return Imagem;
+            }},
 
             { "SaturationCorrection", (config, Imagem) => {
                 SaturationCorrection filter = new SaturationCorrection();
@@ -122,12 +135,6 @@ namespace System
                 Imagem = filter.Apply(Imagem);
                 return Imagem;
             }},
-            { "Invert", (config, Imagem) => {
-                Invert filter = new Invert();
-                Imagem = Imagem.Clone(new Rectangle(0, 0, Imagem.Width, Imagem.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-                Imagem = filter.Apply(Imagem);
-                return Imagem;
-            }},
             { "Erosion", (config, Imagem) => {
                 Erosion filter = new Erosion();
                 Imagem = Imagem.Clone(new Rectangle(0, 0, Imagem.Width, Imagem.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
@@ -150,6 +157,25 @@ namespace System
             #endregion
 
             #region [ Filters ]
+            { "01_NO_PegarAzul", (config, Imagem) => {
+                Imagem.Clone(new Rectangle(0, 0, Imagem.Width, Imagem.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+                Color c = default(Color);
+
+                for (int X = 0; X <= (Imagem.Width) - 1; X++)
+                {
+                    for (int Y = 0; Y <= (Imagem.Height) - 1; Y++)
+                    {
+                        c = Imagem.GetPixel(X, Y);
+                        if (!(c.R == 0 && c.G == 0 && c.B == 0) && !(c.B > c.G + 35 || c.B > c.R + 35))
+                        {
+                            Imagem.SetPixel(X, Y, Color.FromArgb(c.A, 255, 255, 255));
+                        }
+                    }
+                }
+
+                return Imagem;
+            }},
 
             { "TirarBordaTRT21", (config, Imagem) => {
                 Imagem.Clone(new Rectangle(0, 0, Imagem.Width, Imagem.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
@@ -706,25 +732,6 @@ namespace System
                         {
                             Imagem.SetPixel(X, Y, Color.FromArgb(C.A, 255, 255, 255));
                             Imagem.SetPixel(X, Y - 1, Color.FromArgb(C.A, 255, 255, 255));
-                        }
-                    }
-                }
-
-                return Imagem;
-            }},
-            { "PegarAzul", (config, Imagem) => {
-                Imagem.Clone(new Rectangle(0, 0, Imagem.Width, Imagem.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
-                Color c = default(Color);
-
-                for (int X = 0; X <= (Imagem.Width) - 1; X++)
-                {
-                    for (int Y = 0; Y <= (Imagem.Height) - 1; Y++)
-                    {
-                        c = Imagem.GetPixel(X, Y);
-                        if (!(c.R == 0 && c.G == 0 && c.B == 0) && !(c.B > c.G + 35 || c.B > c.R + 35))
-                        {
-                            Imagem.SetPixel(X, Y, Color.FromArgb(c.A, 255, 255, 255));
                         }
                     }
                 }

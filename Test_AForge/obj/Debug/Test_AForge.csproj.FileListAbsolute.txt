@@ -1,0 +1,6 @@
+D:\Ocr\OCR_Accord.Tesseract\_build\Test_AForge\Test_AForge.exe
+D:\Ocr\OCR_Accord.Tesseract\_build\Test_AForge\Test_AForge.pdb
+D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csprojAssemblyReference.cache
+D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csproj.CopyComplete
+D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.exe
+D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.pdb
