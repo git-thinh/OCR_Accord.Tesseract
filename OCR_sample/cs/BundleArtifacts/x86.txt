@@ -1,0 +1,2 @@
+MainPackage=C:\Git\OCR\OCR_Accord.Tesseract\OCR_sample\cs\bin\x86\Release\OCR_1.0.1.0_x86.appx
+SymbolPackage=C:\Git\OCR\OCR_Accord.Tesseract\OCR_sample\cs\obj\x86\Release\Symbols\OCR_1.0.1.0_x86.appxsym
