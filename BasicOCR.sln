@@ -53,8 +53,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageOcrExplorer", "ImageOc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_AForge", "Test_AForge\Test_AForge.csproj", "{BB3A8360-2299-44FD-85EE-8BA1368A0BC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_UWP_Ocr", "Test_UWP_Ocr\Test_UWP_Ocr.csproj", "{2972DE30-3FE4-4A83-A657-F6235BCED88E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -305,18 +303,6 @@ Global
 		{BB3A8360-2299-44FD-85EE-8BA1368A0BC2}.Release|x64.Build.0 = Release|Any CPU
 		{BB3A8360-2299-44FD-85EE-8BA1368A0BC2}.Release|x86.ActiveCfg = Release|Any CPU
 		{BB3A8360-2299-44FD-85EE-8BA1368A0BC2}.Release|x86.Build.0 = Release|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Debug|x64.Build.0 = Debug|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Debug|x86.Build.0 = Debug|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Release|x64.ActiveCfg = Release|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Release|x64.Build.0 = Release|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Release|x86.ActiveCfg = Release|Any CPU
-		{2972DE30-3FE4-4A83-A657-F6235BCED88E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

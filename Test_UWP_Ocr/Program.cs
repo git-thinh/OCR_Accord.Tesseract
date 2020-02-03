@@ -9,7 +9,7 @@ namespace Test_UWP_Ocr
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
         }
     }
 }
