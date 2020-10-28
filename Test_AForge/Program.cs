@@ -14,7 +14,7 @@ namespace Test_AForge
         static void Main(string[] args)
         {
             // Open your image
-            //string path = "test.png";
+            //string path = "test.png"; 
             string path = @"C:\ocr-images\1.1.jpg";
             Bitmap image = (Bitmap)Bitmap.FromFile(path);
 
