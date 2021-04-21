@@ -1,0 +1,12 @@
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\bin\Debug\Test_UWP_Ocr.exe.config
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\bin\Debug\Test_UWP_Ocr.exe
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\bin\Debug\Test_UWP_Ocr.pdb
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\bin\Debug\System.Runtime.WindowsRuntime.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\bin\Debug\System.Runtime.WindowsRuntime.UI.Xaml.dll
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\bin\Debug\Windows.WinMD
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\bin\Debug\System.Runtime.WindowsRuntime.xml
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\bin\Debug\System.Runtime.WindowsRuntime.UI.Xaml.xml
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\obj\Debug\Test_UWP_Ocr.csprojAssemblyReference.cache
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\obj\Debug\Test_UWP_Ocr.csproj.CopyComplete
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\obj\Debug\Test_UWP_Ocr.exe
+C:\Git\OCR\OCR_Accord.Tesseract\Test_UWP_Ocr\obj\Debug\Test_UWP_Ocr.pdb
