@@ -55,6 +55,9 @@
     <Compile Include="src\Render.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IPoVnSystem.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>

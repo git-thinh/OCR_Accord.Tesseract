@@ -29,11 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseract_Test_3.3.0", "Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Tesseract_3.0.1_IPoVn_net2x86", "Test_Tesseract_3.0.1_net2\Test_Tesseract_3.0.1_IPoVn_net2x86.csproj", "{3A9B2425-13CD-4D5A-BF89-6DB94A8BA42C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseract_AForge.NET_Captcha", "Tesseract_AForge.NET_Captcha\RecogCaptcha\Tesseract_AForge.NET_Captcha.csproj", "{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseract_AForge.NET_Captcha - ok", "Tesseract_AForge.NET_Captcha\RecogCaptcha\Tesseract_AForge.NET_Captcha - ok.csproj", "{81CF9EB1-A708-4564-9F35-342F3B6EEEEA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Accord Handwriting", "Accord Handwriting", "{616378DD-74F8-4D1B-BB3F-8F1E15A32BEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord Handwriting", "Accord.Net\Accord Handwriting\Samples\Statistics\Handwriting\Accord Handwriting.csproj", "{ECD64A23-8504-4A68-829D-FB1B6C726C85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord Handwriting - ok", "Accord.Net\Accord Handwriting\Samples\Statistics\Handwriting\Accord Handwriting - ok.csproj", "{ECD64A23-8504-4A68-829D-FB1B6C726C85}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.Controls.Statistics", "Accord.Net\Accord Handwriting\Accord.Statistics.Controls\Accord.Controls.Statistics.csproj", "{0AB27A20-925C-4556-9FA4-6E2C109E448E}"
 EndProject
@@ -45,7 +45,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{34DA1E55-01A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Captcha-Solver", "Captcha-Solver", "{7458DB2A-969C-47DC-A707-E20D1ED0B1C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captcha-Solver-Gui", "Captcha-Solver\Captcha-Solver-Gui\Captcha-Solver-Gui.csproj", "{07272AD0-99BD-4D72-B02F-9DBD05EE1E41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captcha-Solver-Gui - ok", "Captcha-Solver\Captcha-Solver-Gui\Captcha-Solver-Gui - ok.csproj", "{07272AD0-99BD-4D72-B02F-9DBD05EE1E41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captcha-Solver-Lib", "Captcha-Solver\Captcha-Solver-Lib\Captcha-Solver-Lib.csproj", "{8C4560DB-57CE-4C1C-83B5-19284DCBCEF8}"
 EndProject

@@ -1,6 +1,7 @@
 ﻿using IPoVn.IPCore;
 using OCR.TesseractWrapper;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -19,8 +20,8 @@ namespace IPoVn.OCRer
 
     class Program
     {
-        public const string _root = "../../../data-test/";
-        public const string _result = "../../../data-test/_/";
+        public const string _root = @"D:\Ocr\data-test\";
+        public const string _result = @"D:\Ocr\data-test\_\";
 
 
 
@@ -38,11 +39,11 @@ namespace IPoVn.OCRer
         };
 
         const string InputFolder = "";
-        const string OutputFolder = "_";
+        const string OutputFolder = _result;
 
         static void Simple_Recognize()
         {
-            string imageFile = Images[0];
+            string imageFile = _root + @"text\" + Images[0];
 
             TesseractProcessor processor = new TesseractProcessor();
 
@@ -107,64 +108,64 @@ namespace IPoVn.OCRer
         }
         static void Simple1_AnalyseLayout()
         {
-            int n_images = Images.Length;
-            int i_image = 0;
-            for (; i_image < n_images; i_image++)
+            string fileName = "";
+            fileName = _root + @"text\phototest.tif";
+            fileName = @"C:\temp\1.jpg";
+            fileName = @"C:\temp\2.jpg";
+            //fileName = @"C:\temp\5.jpg";
+
+            Console.WriteLine("Image: {0}", fileName);
+
+            string imageFile = Path.Combine("", fileName);
+
+            string name = Path.GetFileNameWithoutExtension(imageFile);
+
+            string outFile = Path.Combine(OutputFolder, string.Format("Simple1_{0}_layout.bmp", name));
+            string outFile2 = Path.Combine(OutputFolder, string.Format("Simple1_{0}_grey.bmp", name));
+            string outFile3 = Path.Combine(OutputFolder, string.Format("Simple1_{0}_bin.bmp", name));
+
+            using (TesseractProcessor processor = new TesseractProcessor())
             {
-                string fileName = Images[i_image];
+                processor.InitForAnalysePage();
+                //processor.SetPageSegMode(ePageSegMode.PSM_AUTO);
 
-                Console.WriteLine("{0} Image: {1}", i_image, fileName);
-
-                string imageFile = Path.Combine("", fileName);
-
-                string name = Path.GetFileNameWithoutExtension(imageFile);
-
-                string outFile = Path.Combine(OutputFolder, string.Format("Simple1_{0}_layout.bmp", name));
-                string outFile2 = Path.Combine(OutputFolder, string.Format("Simple1_{0}_grey.bmp", name));
-                string outFile3 = Path.Combine(OutputFolder, string.Format("Simple1_{0}_bin.bmp", name));
-
-                using (TesseractProcessor processor = new TesseractProcessor())
+                using (Bitmap bmp = Bitmap.FromFile(imageFile) as Bitmap)
                 {
-                    processor.InitForAnalysePage();
-                    //processor.SetPageSegMode(ePageSegMode.PSM_AUTO);
+                    DateTime started = DateTime.Now;
+                    DateTime ended = DateTime.Now;
 
-                    using (Bitmap bmp = Bitmap.FromFile(imageFile) as Bitmap)
+                    DocumentLayout doc = null;
+
+                    unsafe
                     {
-                        DateTime started = DateTime.Now;
-                        DateTime ended = DateTime.Now;
+                        started = DateTime.Now;
 
-                        DocumentLayout doc = null;
+                        doc = processor.AnalyseLayout(bmp);
 
-                        unsafe
+                        ended = DateTime.Now;
+
+                        Console.WriteLine("Duration AnalyseLayout: {0} ms", (ended - started).TotalMilliseconds);
+                    }
+                    Console.WriteLine(doc.ToString());
+                    var ls = new List<string>() { };
+
+                    using (Image tmp = new Bitmap(bmp.Width, bmp.Height)) // prevents one-byte index format
+                    {
+                        using (Graphics grph = Graphics.FromImage(tmp))
                         {
-                            started = DateTime.Now;
+                            //Rectangle rect = new Rectangle(0, 0, tmp.Width, tmp.Height);
 
-                            doc = processor.AnalyseLayout(bmp);
+                            // grph.DrawImage(bmp, rect, rect, GraphicsUnit.Pixel);
 
-                            ended = DateTime.Now;
-
-                            Console.WriteLine("Duration AnalyseLayout: {0} ms", (ended - started).TotalMilliseconds);
-                        }
-                        Console.WriteLine(doc.ToString());
-
-                        using (Image tmp = new Bitmap(bmp.Width, bmp.Height)) // prevents one-byte index format
-                        {
-                            using (Graphics grph = Graphics.FromImage(tmp))
+                            grph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                            foreach (Block block in doc.Blocks)
                             {
-                                Rectangle rect = new Rectangle(0, 0, tmp.Width, tmp.Height);
-
-                                grph.DrawImage(bmp, rect, rect, GraphicsUnit.Pixel);
-
-                                grph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-
-                                foreach (Block block in doc.Blocks)
-                                {
-                                    Render.DrawBlock(grph, block);
-                                }
+                                ls.Add(block.DrawingPen.Color.Name);
+                                Render.DrawBlock(grph, block);
                             }
-
-                            tmp.Save(outFile);
                         }
+
+                        tmp.Save(outFile);
                     }
                 }
             }
@@ -226,74 +227,72 @@ namespace IPoVn.OCRer
 
         static void Simple2_AnalyseLayout()
         {
-            int n_images = Images.Length;
-            int i_image = 0;
-            for (; i_image < n_images; i_image++)
+            string fileName = "";
+            fileName = _root + @"text\phototest.tif";
+            //fileName = @"C:\temp\1.jpg";
+            //fileName = @"C:\temp\2.jpg";
+            fileName = @"C:\temp\5.jpg";
+
+            Console.WriteLine("Image: {0}", fileName);
+
+            string imageFile = Path.Combine(InputFolder, fileName);
+
+            string name = Path.GetFileNameWithoutExtension(imageFile);
+
+            string outFile = Path.Combine(OutputFolder, string.Format("Simple2_{0}_layout.bmp", name));
+            string outFile2 = Path.Combine(OutputFolder, string.Format("Simple2_{0}_grey.bmp", name));
+            string outFile3 = Path.Combine(OutputFolder, string.Format("Simple2_{0}_bin.bmp", name));
+
+            using (TesseractProcessor processor = new TesseractProcessor())
             {
-                string fileName = Images[i_image];
+                processor.InitForAnalysePage();
+                //processor.SetPageSegMode(ePageSegMode.PSM_AUTO);
 
-                Console.WriteLine("{0} Image: {1}", i_image, fileName);
-
-                string imageFile = Path.Combine(InputFolder, fileName);
-
-                string name = Path.GetFileNameWithoutExtension(imageFile);
-
-                string outFile = Path.Combine(OutputFolder, string.Format("Simple2_{0}_layout.bmp", name));
-                string outFile2 = Path.Combine(OutputFolder, string.Format("Simple2_{0}_grey.bmp", name));
-                string outFile3 = Path.Combine(OutputFolder, string.Format("Simple2_{0}_bin.bmp", name));
-
-                using (TesseractProcessor processor = new TesseractProcessor())
+                using (Bitmap bmp = Bitmap.FromFile(imageFile) as Bitmap)
                 {
-                    processor.InitForAnalysePage();
-                    //processor.SetPageSegMode(ePageSegMode.PSM_AUTO);
-
-                    using (Bitmap bmp = Bitmap.FromFile(imageFile) as Bitmap)
+                    using (GreyImage greyImage = GreyImage.FromImage(bmp))
                     {
-                        using (GreyImage greyImage = GreyImage.FromImage(bmp))
+                        greyImage.Save(ImageFormat.Bmp, outFile2);
+
+                        ImageThresholder thresholder = new AdaptiveThresholder();
+                        using (BinaryImage binImage = thresholder.Threshold(greyImage))
                         {
-                            greyImage.Save(ImageFormat.Bmp, outFile2);
+                            binImage.Save(ImageFormat.Bmp, outFile3);
 
-                            ImageThresholder thresholder = new AdaptiveThresholder();
-                            using (BinaryImage binImage = thresholder.Threshold(greyImage))
+                            DateTime started = DateTime.Now;
+                            DateTime ended = DateTime.Now;
+
+                            DocumentLayout doc = null;
+
+                            unsafe
                             {
-                                binImage.Save(ImageFormat.Bmp, outFile3);
+                                started = DateTime.Now;
 
-                                DateTime started = DateTime.Now;
-                                DateTime ended = DateTime.Now;
+                                doc = processor.AnalyseLayoutBinaryImage(
+                                    binImage.BinaryData, greyImage.Width, greyImage.Height);
 
-                                DocumentLayout doc = null;
+                                ended = DateTime.Now;
 
-                                unsafe
+                                Console.WriteLine("Duration AnalyseLayout: {0} ms", (ended - started).TotalMilliseconds);
+                            }
+                            Console.WriteLine(doc.ToString());
+
+                            using (Image tmp = new Bitmap(bmp.Width, bmp.Height)) // prevents one-byte index format
+                            {
+                                using (Graphics grph = Graphics.FromImage(tmp))
                                 {
-                                    started = DateTime.Now;
+                                    //Rectangle rect = new Rectangle(0, 0, tmp.Width, tmp.Height);
+                                    //grph.DrawImage(bmp, rect, rect, GraphicsUnit.Pixel);
 
-                                    doc = processor.AnalyseLayoutBinaryImage(
-                                        binImage.BinaryData, greyImage.Width, greyImage.Height);
+                                    grph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
 
-                                    ended = DateTime.Now;
-
-                                    Console.WriteLine("Duration AnalyseLayout: {0} ms", (ended - started).TotalMilliseconds);
-                                }
-                                Console.WriteLine(doc.ToString());
-
-                                using (Image tmp = new Bitmap(bmp.Width, bmp.Height)) // prevents one-byte index format
-                                {
-                                    using (Graphics grph = Graphics.FromImage(tmp))
+                                    foreach (Block block in doc.Blocks)
                                     {
-                                        Rectangle rect = new Rectangle(0, 0, tmp.Width, tmp.Height);
-
-                                        grph.DrawImage(bmp, rect, rect, GraphicsUnit.Pixel);
-
-                                        grph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-
-                                        foreach (Block block in doc.Blocks)
-                                        {
-                                            Render.DrawBlock(grph, block);
-                                        }
+                                        Render.DrawBlock(grph, block);
                                     }
-
-                                    tmp.Save(outFile);
                                 }
+
+                                tmp.Save(outFile);
                             }
                         }
                     }
@@ -394,13 +393,13 @@ namespace IPoVn.OCRer
 
         static void Main(string[] args)
         {
-            Simple_Recognize();
+            //Simple_Recognize();
 
             //Simple1_Recognize();
-            //Simple1_AnalyseLayout();
+            Simple1_AnalyseLayout();
+            //Simple2_AnalyseLayout();
 
             //Simple2_Recognize();
-            //Simple2_AnalyseLayout();
 
             //Simple3_Recognize();
 
