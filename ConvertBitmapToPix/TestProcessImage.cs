@@ -75,14 +75,22 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void test_005_ConvertRGBToGrayTest(string sourcePixFilename = "photo_rgb_32bpp.tif")
+        public static void test_005_ConvertRGBToGrayTest(string file = "photo_rgb_32bpp.tif")
         {
+            file = _root + @"phototest.tif";
+            file = @"C:\temp\table.png";
+            //file = @"C:\temp\1.jpg";
+            //file = @"C:\temp\2.jpg";
+            file = @"C:\temp\5.jpg";
+            file = @"C:\temp\5-.jpg";
+            string name = Path.GetFileName(file).Split('.')[0];
+
             //var sourcePixFilename = TestFilePath(@"Conversion\photo_rgb_32bpp.tif");
-            using (var sourcePix = Pix.LoadFromFile(_root + sourcePixFilename))
+            using (var sourcePix = Pix.LoadFromFile(file))
             using (var grayscaleImage = sourcePix.ConvertRGBToGray())
             {
                 //Assert.That(grayscaleImage.Depth, Is.EqualTo(8));
-                SaveResult(grayscaleImage, "grayscaleImage.jpg");
+                SaveResult(grayscaleImage, _result + name + "_grayscale.jpg");
             }
         }
 
@@ -108,10 +116,20 @@ namespace ConvertBitmapToPix
             }
         }
 
-        public static void test_007_RemoveLinesTest(string sourcePixFilename = "table.png")
+        public static void test_007_RemoveLinesTest(string file = "table.png")
         {
+            file = _root + @"phototest.tif";
+            file = @"C:\temp\table.png";
+            //file = @"C:\temp\1.jpg";
+            //file = @"C:\temp\2.jpg";
+            //file = @"C:\temp\5.jpg";
+
+
+            string name = Path.GetFileName(file).Split('.')[0];
+
+
             //var sourcePixFilename = TestFilePath(@"processing\table.png");
-            using (var sourcePix = Pix.LoadFromFile(_root + sourcePixFilename))
+            using (var sourcePix = Pix.LoadFromFile(file))
             {
                 // remove horizontal lines
                 using (var result = sourcePix.RemoveLines())
@@ -126,7 +144,7 @@ namespace ConvertBitmapToPix
                             using (var result3 = result2.Rotate90(-1))
                             {
                                 // TODO: Visualy confirm successful rotation and then setup an assertion to compare that result is the same.
-                                SaveResult(result3, "tableBordersRemoved.png");
+                                SaveResult(result3, _result + name + "_tableBordersRemoved.png");
                             }
                         }
                     }

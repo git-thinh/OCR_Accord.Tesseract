@@ -16,30 +16,39 @@ namespace ImgBinEg
 {
     class Program
     {
+        public const string _root = @"D:\Ocr\data-test\";
+        public const string _result = @"D:\Ocr\data-test\_\";
 
 
         static void Main(string[] args)
         {
             Console.Title = "Basic OCR.exe";
-            string filename, path, dir, language;
+            string name, file, dir, language;
             //take full path from user
             //Console.WriteLine("Enter path:");
             //Separating filename and directory
-            path = "en.jpg";// Console.ReadLine();
-            path = "1.jpg";
-            path = "12.jpg";
+            file = "en.jpg";// Console.ReadLine();
+            file = "1.jpg";
+            file = "12.jpg";
             //path = "13.jpg";
             //path = "2.jpg";
 
 
-            dir = Path.GetDirectoryName(path);
-            filename = Path.GetFileNameWithoutExtension(path);
+            file = _root + @"text\phototest.tif";
+            file = @"C:\temp\1.jpg";
+            file = @"C:\temp\2.jpg";
+            file = @"C:\temp\3.jpg";
+            file = @"C:\temp\4.jpg";
+            file = @"C:\temp\5.jpg";
+
+            name = Path.GetFileNameWithoutExtension(file);
+
             //Enter language for Tesseract engine
             //Console.WriteLine("Enter language(hin-Hindi,eng-English,ori-Oriya):");
-            language = "eng";// Console.ReadLine();
-            //language = "vie";
+            //language = "eng";// Console.ReadLine();
+            language = "vie";
             //Create Bitmap object
-            Bitmap img2 = Accord.Imaging.Image.FromFile(path);
+            Bitmap img2 = Accord.Imaging.Image.FromFile(file);
 
             //Image is first converted to Grayscale as Thresholding doesn't support coloured images as input
             Grayscale gray = new Grayscale(0.2125, 0.7154, 0.0721);
@@ -58,15 +67,14 @@ namespace ImgBinEg
             thres.ApplyInPlace(result);
 
             //Save the binarized image
-            // result.Save(dir + "\\" + filename + "_1thres.bmp");
-            result.Save(filename + "_1thres.bmp");
+            result.Save(_result + name + "_1thres.bmp");
 
             //Sharpening
             Console.WriteLine("Sharpening...");
             Sharpen sharp = new Sharpen();
             // apply the filter
             sharp.ApplyInPlace(result);
-            //result.Save(dir + "\\" + filename + "_2sharp.bmp");
+            result.Save(_result + name + "_2sharp.bmp");
 
             //Bilateral Smoothing
             // create filter
@@ -80,7 +88,7 @@ namespace ImgBinEg
             smooth.ApplyInPlace(result);
 
             //Save cleaned image
-            //result.Save(dir + "\\" + filename + "_3smooth.bmp");
+            result.Save(_result + name + "_3smooth.bmp");
 
             //Document skew, line detection
             DocumentSkewChecker skew = new DocumentSkewChecker();
@@ -90,8 +98,7 @@ namespace ImgBinEg
             rot.FillColor = Color.White;
             result = rot.Apply(result);
 
-            //result.Save(dir + "\\" + filename + "_4rot.bmp");
-            result.Save(filename + "_4rot.bmp");
+            result.Save(_result + name + "_4rot.bmp");
 
             try
             {
@@ -104,14 +111,14 @@ namespace ImgBinEg
                             var text = page.GetText();
                             Console.WriteLine("Text(get text): \r\n{0}", text);
 
-                            StreamWriter sw;
+                            //StreamWriter sw;
                             //string Filename = dir + "\\" + filename + "_text.doc";
-                            string Filename = filename + "_text.txt";
-                            sw = File.CreateText(Filename);
-                            Console.WriteLine("Generating file...");
-                            string FileData = text;
-                            sw.WriteLine(FileData);
-                            sw.Close();
+                            //string Filename = filename + "_text.txt";
+                            //sw = File.CreateText(Filename);
+                            Console.WriteLine("Generating file...", text);
+                            //string FileData = text;
+                            //sw.WriteLine(FileData);
+                            //sw.Close();
 
                             //We make a list of type Rectangle. It stores data of all the bounding boxes
                             List<Rectangle> boxes = page.GetSegmentedRegions(PageIteratorLevel.Symbol);
@@ -144,7 +151,7 @@ namespace ImgBinEg
                             //Saving the image with bounding boxes
                             Console.WriteLine("Generating image with bounding boxes...");
                             //rez.Save(dir + "\\" + filename + "_5seg.bmp");
-                            rez.Save(filename + "_5seg.bmp");
+                            rez.Save(_result + name + "_5seg.bmp");
 
 
                         }

@@ -11,8 +11,8 @@ namespace ConvertBitmapToPix
 {
     class Program
     {
-        public const string _root = "../../../data-test/";
-        public const string _result = "../../../data-test/_/";
+        public const string _root = @"D:\Ocr\data-test\";
+        public const string _result = @"D:\Ocr\data-test\_\";
 
         static void run_test_color() {
             TestColor.test_001_CastColorToNetColor();
@@ -58,13 +58,17 @@ namespace ConvertBitmapToPix
 
         static void Main(string[] args)
         {
-            if (Directory.Exists(_result) == false) Directory.CreateDirectory(_result);
-            if (Directory.Exists(_root) == false) Directory.CreateDirectory(_root);
+            //if (Directory.Exists(_result) == false) Directory.CreateDirectory(_result);
+            //if (Directory.Exists(_root) == false) Directory.CreateDirectory(_root);
 
-            run_test_color();
-            run_test_pix();
-            run_test_get_text();
-            run_test_process_iamge(); 
+            //run_test_color();
+            //run_test_pix();
+            //run_test_get_text();
+            //run_test_process_iamge(); 
+
+
+            //TestProcessImage.test_007_RemoveLinesTest();
+            TestProcessImage.test_005_ConvertRGBToGrayTest();
 
             Console.WriteLine("DONE ...");
             Console.ReadLine();
