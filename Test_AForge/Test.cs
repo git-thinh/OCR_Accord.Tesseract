@@ -19,8 +19,11 @@ namespace Test_AForge
     {
         //public const string PATH_IN = @"C:\TEMP\grey\";
         //public const string PATH_IN = @"C:\Git\OCR\OCR_Accord.Tesseract\data-test\rectangle\";
-        public const string PATH_IN = @"C:\ocr-images\";
-        const string PATH_OUT = @"C:\TEMP\";
+        //public const string PATH_IN = @"C:\ocr-images\";
+        //const string PATH_OUT = @"C:\TEMP\";
+
+        public const string PATH_IN = @"C:\temp\";
+        public const string PATH_OUT = @"D:\Ocr\data-test\_\";
 
         public static void t001_detect_rectangles(string file = "YfXPD.png", string folder_out = "")
         {

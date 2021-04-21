@@ -68,7 +68,7 @@ namespace ConvertBitmapToPix
 
 
             //TestProcessImage.test_007_RemoveLinesTest();
-            TestProcessImage.test_005_ConvertRGBToGrayTest();
+            //TestProcessImage.test_005_ConvertRGBToGrayTest();
 
             Console.WriteLine("DONE ...");
             Console.ReadLine();

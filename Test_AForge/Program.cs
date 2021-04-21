@@ -14,8 +14,17 @@ namespace Test_AForge
     {
         static void Main(string[] args)
         {
+            string file = @"";
+            //file = @"1.jpg";
+            //file = @"2.jpg";
+            file = @"5.jpg";
+            file = @"5-.jpg";
+            file = @"5.bmp";
+
+            test.t003_detect_rectangles(file);
+
             //test.t003_detect_rectangles("1.1.jpg");
-            test.t002_detect_rectangles("0.jpg", "t002_detect_rectangles");
+            //test.t002_detect_rectangles("0.jpg", "t002_detect_rectangles");
             //test.t002_detect_rectangles("0.0.jpg", "t002_detect_rectangles");
             //test.t002_detect_rectangles("1.0.jpg", "t002_detect_rectangles");
             //test.t002_detect_rectangles("1.1.jpg", "t002_detect_rectangles");

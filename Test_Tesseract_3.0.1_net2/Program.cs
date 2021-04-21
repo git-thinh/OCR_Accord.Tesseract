@@ -111,7 +111,10 @@ namespace IPoVn.OCRer
             string fileName = "";
             fileName = _root + @"text\phototest.tif";
             fileName = @"C:\temp\1.jpg";
-            fileName = @"C:\temp\2.jpg";
+            //fileName = @"C:\temp\1.bmp";
+            //fileName = @"C:\temp\2.jpg";
+            //fileName = @"C:\temp\3.jpg";
+            //fileName = @"C:\temp\4.jpg";
             //fileName = @"C:\temp\5.jpg";
 
             Console.WriteLine("Image: {0}", fileName);
@@ -147,7 +150,6 @@ namespace IPoVn.OCRer
                         Console.WriteLine("Duration AnalyseLayout: {0} ms", (ended - started).TotalMilliseconds);
                     }
                     Console.WriteLine(doc.ToString());
-                    var ls = new List<string>() { };
 
                     using (Image tmp = new Bitmap(bmp.Width, bmp.Height)) // prevents one-byte index format
                     {
@@ -160,9 +162,19 @@ namespace IPoVn.OCRer
                             grph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                             foreach (Block block in doc.Blocks)
                             {
-                                ls.Add(block.DrawingPen.Color.Name);
-                                Render.DrawBlock(grph, block);
+                                //Render.DrawBlock(grph, block);
                             }
+
+                            //// Set the image attribute's color mappings
+                            //ColorMap[] colorMap = new ColorMap[1];
+                            //colorMap[0] = new ColorMap();
+                            //colorMap[0].OldColor = Color.Black;
+                            //colorMap[0].NewColor = Color.Blue;
+                            //ImageAttributes attr = new ImageAttributes();
+                            //attr.SetRemapTable(colorMap);
+                            //// Draw using the color map
+                            //Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+                            //grph.DrawImage(tmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
                         }
 
                         tmp.Save(outFile);
@@ -170,6 +182,7 @@ namespace IPoVn.OCRer
                 }
             }
         }
+         
 
         static void Simple2_Recognize()
         {
@@ -403,8 +416,8 @@ namespace IPoVn.OCRer
 
             //Simple3_Recognize();
 
-            Console.Write("\n\n\nPress any key to exit...");
-            Console.ReadKey();
+            //Console.Write("\n\n\nPress any key to exit...");
+            //Console.ReadKey();
         }
     }
 }

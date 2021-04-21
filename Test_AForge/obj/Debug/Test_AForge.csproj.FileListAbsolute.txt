@@ -10,3 +10,4 @@ C:\Git\OCR\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csprojAssembly
 C:\Git\OCR\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csproj.CopyComplete
 C:\Git\OCR\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.exe
 C:\Git\OCR\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.pdb
+D:\Ocr\OCR_Accord.Tesseract\Test_AForge\obj\Debug\Test_AForge.csproj.CoreCompileInputs.cache

@@ -35,9 +35,9 @@ namespace demo
             f = "r.jpg";
 
 
-            ////Bitmap image = fun_filterImage_Basic(f);
-            //Bitmap image = fun_filterImage_v1(f);
-            //fid_process_getNoID(f, image);
+            //Bitmap image = fun_filterImage_Basic(f);
+            Bitmap image = fun_filterImage_v1(f);
+            fid_process_getNoID(f, image);
 
 
             Console.WriteLine("\n\nPress ENTER/RETURN to exit");
