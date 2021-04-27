@@ -111,10 +111,9 @@ namespace IPoVn.OCRer
             string fileName = "";
             fileName = _root + @"text\phototest.tif";
             fileName = @"C:\temp\1.jpg";
-            //fileName = @"C:\temp\1.bmp";
-            //fileName = @"C:\temp\2.jpg";
-            //fileName = @"C:\temp\3.jpg";
-            //fileName = @"C:\temp\4.jpg";
+            fileName = @"C:\temp\2.jpg";
+            fileName = @"C:\temp\3.jpg";
+            fileName = @"C:\temp\4.jpg";
             //fileName = @"C:\temp\5.jpg";
 
             Console.WriteLine("Image: {0}", fileName);
@@ -130,7 +129,7 @@ namespace IPoVn.OCRer
             using (TesseractProcessor processor = new TesseractProcessor())
             {
                 processor.InitForAnalysePage();
-                //processor.SetPageSegMode(ePageSegMode.PSM_AUTO);
+                //processor.SetPageSegMode(ePageSegMode.PSM_AUTO_ONLY);
 
                 using (Bitmap bmp = Bitmap.FromFile(imageFile) as Bitmap)
                 {
@@ -149,9 +148,11 @@ namespace IPoVn.OCRer
 
                         Console.WriteLine("Duration AnalyseLayout: {0} ms", (ended - started).TotalMilliseconds);
                     }
-                    Console.WriteLine(doc.ToString());
+                    Console.WriteLine(outFile);
 
-                    using (Image tmp = new Bitmap(bmp.Width, bmp.Height)) // prevents one-byte index format
+                    // prevents one-byte index format
+                    //using (Image tmp = new Bitmap(bmp.Width, bmp.Height))
+                    using (Image tmp = new Bitmap(imageFile))
                     {
                         using (Graphics grph = Graphics.FromImage(tmp))
                         {
@@ -162,19 +163,23 @@ namespace IPoVn.OCRer
                             grph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                             foreach (Block block in doc.Blocks)
                             {
-                                //Render.DrawBlock(grph, block);
-                            }
+                                Render.DrawBlock(grph, block);
 
-                            //// Set the image attribute's color mappings
-                            //ColorMap[] colorMap = new ColorMap[1];
-                            //colorMap[0] = new ColorMap();
-                            //colorMap[0].OldColor = Color.Black;
-                            //colorMap[0].NewColor = Color.Blue;
-                            //ImageAttributes attr = new ImageAttributes();
-                            //attr.SetRemapTable(colorMap);
-                            //// Draw using the color map
-                            //Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-                            //grph.DrawImage(tmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
+                                //if (block.Paragraphs != null && block.Paragraphs.Count > 0)
+                                //{
+                                //    for (int i = 0; i < block.Paragraphs.Count; i++)
+                                //    {
+                                //        var lines = block.Paragraphs[i].Lines;
+                                //        if (lines != null && lines.Count > 0)
+                                //        {
+                                //            for (int j = 0; j < lines.Count; j++)
+                                //            {
+
+                                //            }
+                                //        }
+                                //    }
+                                //}
+                            }
                         }
 
                         tmp.Save(outFile);
@@ -182,7 +187,7 @@ namespace IPoVn.OCRer
                 }
             }
         }
-         
+
 
         static void Simple2_Recognize()
         {

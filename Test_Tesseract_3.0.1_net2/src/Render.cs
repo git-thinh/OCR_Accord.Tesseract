@@ -26,16 +26,16 @@ namespace IPoVn.OCRer
 
         public static void DrawTextLine(Graphics grph, TextLine line)
         {
-            foreach (Word word in line.Words)
-                DrawWord(grph, word);
+            //foreach (Word word in line.Words)
+            //    DrawWord(grph, word);
 
             line.Draw(grph);
         }
 
         public static void DrawWord(Graphics grph, Word word)
         {
-            foreach (Character ch in word.CharList)
-                DrawChar(grph, ch);
+            //foreach (Character ch in word.CharList)
+            //    DrawChar(grph, ch);
 
             word.Draw(grph);
         }

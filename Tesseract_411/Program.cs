@@ -12,7 +12,7 @@ using Tesseract;
 using System.Diagnostics;
 using Accord.IO;
 
-namespace ImgBinEg
+namespace Tesseract_411
 {
     class Program
     {
@@ -39,14 +39,14 @@ namespace ImgBinEg
             //file = @"C:\temp\2.jpg";
             //file = @"C:\temp\3.jpg";
             //file = @"C:\temp\4.jpg";
-            file = @"C:\temp\5.jpg";
+            //file = @"C:\temp\5.jpg";
 
             name = Path.GetFileNameWithoutExtension(file);
 
             //Enter language for Tesseract engine
             //Console.WriteLine("Enter language(hin-Hindi,eng-English,ori-Oriya):");
-            language = "eng";// Console.ReadLine();
-            //language = "vie";
+            //language = "eng";// Console.ReadLine();
+            language = "vie";
             //Create Bitmap object
             Bitmap img2 = Accord.Imaging.Image.FromFile(file);
 
@@ -137,7 +137,7 @@ namespace ImgBinEg
                             using (Graphics g = Graphics.FromImage(rez))
                             {
 
-                                Pen p = new Pen(Brushes.Red, 3.0F);
+                                Pen p = new Pen(Brushes.Red, 1.0F);
                                 foreach (Rectangle r in boxes)
                                 {
                                     //Console.WriteLine(r);
@@ -151,7 +151,9 @@ namespace ImgBinEg
                             //Saving the image with bounding boxes
                             Console.WriteLine("Generating image with bounding boxes...");
                             //rez.Save(dir + "\\" + filename + "_5seg.bmp");
-                            rez.Save(_result + name + "_5seg.bmp");
+                            string f5 = _result + name + "_5seg.bmp";
+                            Console.WriteLine(f5);
+                            rez.Save(f5);
 
 
                         }

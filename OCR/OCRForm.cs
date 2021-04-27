@@ -304,6 +304,9 @@ namespace OCR
                 if (Mode == OCRMode.FullPage)
                 {
                     hocrTextBox.Text = _ocr.GetHOCRText();
+                    var s1 = _ocr.GetBoxText();
+                    //var s2 = _ocr.GetUNLVText();
+                    ocrTextBox.Text = s1;
                 }
             }
 #if !DEBUG
