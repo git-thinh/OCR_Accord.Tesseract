@@ -1,0 +1,26 @@
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\liblept168.dll
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\libtesseract302.dll
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\x64\liblept172.dll
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\x64\libtesseract304.dll
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\x86\liblept172.dll
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\x86\libtesseract304.dll
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.cube.bigrams
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.cube.fold
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.cube.lm
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.cube.nn
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.cube.params
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.cube.size
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.cube.word-freq
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.tesseract_cube.nn
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\tessdata\eng.traineddata
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\RecogCaptcha.exe.config
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\RecogCaptcha.exe
+C:\core\OCR_Accord.Tesseract\_build\Tesseract_AForge.NET_Captcha\RecogCaptcha.pdb
+C:\core\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\Tesseract_AForge.NET_Captcha - ok.csprojAssemblyReference.cache
+C:\core\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\RecogCaptcha.Form1.resources
+C:\core\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\RecogCaptcha.Properties.Resources.resources
+C:\core\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\Tesseract_AForge.NET_Captcha - ok.csproj.GenerateResource.cache
+C:\core\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\Tesseract_AForge.NET_Captcha - ok.csproj.CoreCompileInputs.cache
+C:\core\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\Tesseract_AForge.NET_Captcha - ok.csproj.CopyComplete
+C:\core\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\RecogCaptcha.exe
+C:\core\OCR_Accord.Tesseract\Tesseract_AForge.NET_Captcha\RecogCaptcha\obj\Debug\RecogCaptcha.pdb
