@@ -88,3 +88,5 @@
 /OCR_sample/cs/obj
 /OCR_sample/cs/.vs
 /OCR_sample/cs/AppPackages
+/AForgeDetectObjectImage/bin/Debug/AForgeDetectObjectImage.pdb
+/AForgeDetectObjectImage/obj
