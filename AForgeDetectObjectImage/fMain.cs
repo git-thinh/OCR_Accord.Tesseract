@@ -38,27 +38,21 @@ namespace AForgeDetectObjectImage
                 var bitmap = (Bitmap)Bitmap.FromFile(file);
                 pictureBox1.Image = bitmap;
 
-                openFile1(file);
-                //openFile2(file);
+                //var bmp = openFile1(file);
+                //var bmp = openFile2(file);
+                var bmp = openFile3(file);
+                __execute(file, bmp);
                 //LockUnlockBitsExample(file);
+
+                //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                //pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
+                //pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
+
             }
         }
 
-        void openFile1(string file)
+        void __execute(string file, Bitmap bmp)
         {
-            var image = (Bitmap)Bitmap.FromFile(file);
-
-            //Those are AForge filters "using Aforge.Imaging.Filters;"
-            Grayscale gfilter = new Grayscale(0.2125, 0.7154, 0.0721);
-            Invert ifilter = new Invert();
-            BradleyLocalThresholding thfilter = new BradleyLocalThresholding();
-            var bmp = gfilter.Apply(image);
-            thfilter.ApplyInPlace(bmp);
-            ifilter.ApplyInPlace(bmp);
-
-            pictureBox2.Image = bmp;
-
-
             BlobCounter blobCounter = new BlobCounter();
             blobCounter.FilterBlobs = true;
             blobCounter.MinHeight = 5;
@@ -79,9 +73,29 @@ namespace AForgeDetectObjectImage
                 g.DrawRectangle(new Pen(Color.Red, 1.0f), rec);
             }
             pictureBox3.Image = result;
-            pictureBox1.Height = result.Height;
-            pictureBox2.Height = result.Height;
-            pictureBox3.Height = result.Height;
+        }
+
+        Bitmap openFile1(string file)
+        {
+            var image = (Bitmap)Bitmap.FromFile(file);
+
+            //Those are AForge filters "using Aforge.Imaging.Filters;"
+            Grayscale gfilter = new Grayscale(0.2125, 0.7154, 0.0721);
+            Invert ifilter = new Invert();
+            BradleyLocalThresholding thfilter = new BradleyLocalThresholding();
+            var bmp = gfilter.Apply(image);
+            thfilter.ApplyInPlace(bmp);
+            ifilter.ApplyInPlace(bmp);
+
+            pictureBox2.Image = bmp;
+
+            return bmp;
+
+
+            //pictureBox1.Height = result.Height;
+            //pictureBox2.Height = result.Height;
+            //pictureBox3.Height = result.Height;
+
             ;
 
 
@@ -126,6 +140,24 @@ namespace AForgeDetectObjectImage
 
             //    }
 
+        }
+
+        Bitmap openFile3(string file)
+        {
+            var image = (Bitmap)Bitmap.FromFile(file);
+
+            //Those are AForge filters "using Aforge.Imaging.Filters;"
+            //Grayscale gfilter = new Grayscale(0.2125, 0.7154, 0.0721);
+            Grayscale gfilter = new Grayscale(0.9125, 0.7154, 0.0721);
+            Invert ifilter = new Invert();
+            BradleyLocalThresholding thfilter = new BradleyLocalThresholding();
+            var bmp = gfilter.Apply(image);
+            thfilter.ApplyInPlace(bmp);
+            ifilter.ApplyInPlace(bmp);
+
+            pictureBox2.Image = bmp;
+
+            return bmp;
         }
 
         private void openFile2(string file)
